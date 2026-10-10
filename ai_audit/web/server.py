@@ -108,9 +108,16 @@ HTML_DASHBOARD = r"""<!DOCTYPE html>
     .form-group { margin-bottom: 1rem; }
     .form-group label { display: block; font-size: 0.8rem; color: var(--text-muted); font-weight: 600; margin-bottom: 0.25rem; }
     .form-control { width: 100%; background: #0f172a; border: 1px solid var(--card-border); padding: 0.5rem; border-radius: 4px; color: #fff; font-size: 0.875rem; }
+
+    /* Toast Notification */
+    .toast { position: fixed; bottom: 1.5rem; right: 1.5rem; background: #1e293b; color: #fff; border: 1px solid var(--primary); padding: 0.875rem 1.25rem; border-radius: 8px; font-size: 0.875rem; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.5); z-index: 2000; display: flex; align-items: center; gap: 0.5rem; transform: translateY(150%); opacity: 0; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+    .toast.show { transform: translateY(0); opacity: 1; }
+    .toast-success { border-color: var(--success); }
+    .toast-error { border-color: var(--danger); }
   </style>
 </head>
 <body>
+  <div id="toast" class="toast"></div>
 
   <header>
     <div class="brand">
@@ -530,6 +537,15 @@ HTML_DASHBOARD = r"""<!DOCTYPE html>
       document.getElementById('editModal').classList.remove('open');
     }
 
+    function showToast(message, type = 'success') {
+      const toast = document.getElementById('toast');
+      toast.textContent = message;
+      toast.className = `toast toast-${type} show`;
+      setTimeout(() => {
+        toast.className = 'toast';
+      }, 3500);
+    }
+
     async function saveOpportunityModal() {
       const oppId = document.getElementById('editOppId').value;
       const payload = {
@@ -551,17 +567,18 @@ HTML_DASHBOARD = r"""<!DOCTYPE html>
       if (res.ok) {
         closeModal();
         fetchProject();
+        showToast(`✅ Updated [${oppId}] scores and recalculated priorities!`, 'success');
       } else {
-        alert('Failed to update opportunity score.');
+        showToast('❌ Failed to update opportunity score.', 'error');
       }
     }
 
     async function exportDeliverables() {
       const res = await fetch('/api/export', { method: 'POST' });
       if (res.ok) {
-        alert('Deliverables exported successfully to outputs/ directory!');
+        showToast('🚀 Deliverables exported successfully to outputs/ directory!', 'success');
       } else {
-        alert('Error exporting deliverables.');
+        showToast('❌ Error exporting deliverables.', 'error');
       }
     }
 

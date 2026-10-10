@@ -20,7 +20,7 @@ This **AI Opportunity Audit and Automation Roadmap** provides an objective, evid
 - **Combined Gross Annual Value:** **$211,456/year**.
 - **Total Implementation Investment:** **$60,600** one-off development and setup.
 - **Estimated Payback Period:** **3.7 months** (3-Year ROI: **525.6%**).
-- **Recommended First Prototype:** **Client Onboarding Orchestrator & Automated Asset Collection Hub** (Phase 1, Days 1–30).
+- **Recommended First Prototype:** **Automated Cross-Channel Performance Report Generator & Executive Summary Draft** (Phase 1, Days 1–30).
 
 > **Important Governance Note:** All recommendations are anchored in strict human-in-the-loop safeguards. Highly autonomous, unsupervised client-facing AI actions are explicitly blocked under our hard-stop risk framework.
 
@@ -266,8 +266,8 @@ Opportunities have been scored using our multi-criteria decision framework acros
 ### Prioritised Ranking Table
 | Rank | ID | Opportunity Title | Type | Score | Tier | Delivery Confidence | Human Approval Gate | Status |
 | :---: | :--- | :--- | :--- | :---: | :--- | :---: | :--- | :--- |
-| **#1** | `OPP-02` | **Client Onboarding Orchestrator & Automated Asset Collection Hub** | `RULE_BASED` | **87.5** | `Quick Win` | 4.8/5 | EXCEPTION_ONLY | ✅ Approved for Roadmap |
-| **#2** | `OPP-01` | **Automated Cross-Channel Performance Report Generator & Executive Summary Draft** | `HYBRID` | **86.0** | `Quick Win` | 4.5/5 | MANDATORY_REVIEW | ✅ Approved for Roadmap |
+| **#1** | `OPP-01` | **Automated Cross-Channel Performance Report Generator & Executive Summary Draft** | `HYBRID` | **89.0** | `Quick Win` | 4.8/5 | MANDATORY_REVIEW | ✅ Approved for Roadmap |
+| **#2** | `OPP-02` | **Client Onboarding Orchestrator & Automated Asset Collection Hub** | `RULE_BASED` | **87.5** | `Quick Win` | 4.8/5 | EXCEPTION_ONLY | ✅ Approved for Roadmap |
 | **#3** | `OPP-09` | **Automated Monthly Client Health & Retention Risk Predictor** | `RULE_BASED` | **78.8** | `Quick Win` | 4.4/5 | EXCEPTION_ONLY | ✅ Approved for Roadmap |
 | **#4** | `OPP-03` | **Smart Inbound Lead Enrichment & Routing Assistant** | `HYBRID` | **77.1** | `Quick Win` | 4.2/5 | MANDATORY_REVIEW | ✅ Approved for Roadmap |
 | **#5** | `OPP-06` | **Client Meeting Intelligence & Action Item Synchronizer** | `AI_LLM` | **74.0** | `Quick Win` | 4.2/5 | MANDATORY_REVIEW | ✅ Approved for Roadmap |
@@ -278,6 +278,27 @@ Opportunities have been scored using our multi-criteria decision framework acros
 
 ### Detailed Opportunity Profiles
 
+#### [OPP-01] Automated Cross-Channel Performance Report Generator & Executive Summary Draft
+- **Status / Tier:** `Quick Win` (Composite Score: **89.0/100**)
+- **Workflow Affected:** `weekly_reporting` | **Owner:** David Chen (Senior Consultant)
+- **Technology Approach:** `HYBRID`
+- **Why AI vs Rule-Based Automation:** Rule-based automation handles deterministic API metric pulls and variance math; LLM is used strictly to draft structured natural language commentary from structured KPI deltas.
+- **Problem Statement:** Consultants spend 14+ hours every week manually copying metrics across 3 ad platforms and typing formulaic commentary, causing high burnout and a 12% calculation error rate.
+- **Proposed Solution:** API-based data ingestion pipeline combined with a prompt-engineered LLM drafter that compares current week vs prior week KPIs, flags key drivers, and pre-populates the commentary block for consultant review and 1-click signoff.
+- **Human-in-the-Loop Governance:** `MANDATORY_REVIEW`
+- **Score Breakdown:**
+  - Business Value: `5.0/5`
+  - Data Readiness: `4.5/5` (Notes: *High readiness: Google Ads, Meta Ads, and Looker Studio schemas are well-structured and accessible via official APIs.*)
+  - Delivery Confidence: `4.8/5`
+  - Implementation Effort: `2.5/5`
+  - Operational Risk: `1.5/5`
+- **Scoring Rationale:** High business value with strong data readiness, proven delivery model, and low operational friction.
+- **Dependencies & Integrations:** Meta Marketing API, Google Ads API, Looker Studio, Slack
+- **Key Assumptions & Limitations:**
+  - *Assumptions:* Consultants require an average of 10 minutes to review and polish generated drafts rather than 75 minutes drafting from scratch.; API connectors remain stable with standard rate limits.
+  - *Limitations:* AI does not interpret external macro events (e.g. client website crash) unless manually flagged in prompt context.
+
+---
 #### [OPP-02] Client Onboarding Orchestrator & Automated Asset Collection Hub
 - **Status / Tier:** `Quick Win` (Composite Score: **87.5/100**)
 - **Workflow Affected:** `client_onboarding` | **Owner:** Elena Rostova (Head of Client Services)
@@ -297,27 +318,6 @@ Opportunities have been scored using our multi-criteria decision framework acros
 - **Key Assumptions & Limitations:**
   - *Assumptions:* Clients respond faster to an interactive checklist portal than scattered email threads.; Reduces administrative setup from 8 hours to 30 minutes per new client.
   - *Limitations:* Third-party platform 2FA approvals still require human client intervention.
-
----
-#### [OPP-01] Automated Cross-Channel Performance Report Generator & Executive Summary Draft
-- **Status / Tier:** `Quick Win` (Composite Score: **86.0/100**)
-- **Workflow Affected:** `weekly_reporting` | **Owner:** David Chen (Senior Consultant)
-- **Technology Approach:** `HYBRID`
-- **Why AI vs Rule-Based Automation:** Rule-based automation handles deterministic API metric pulls and variance math; LLM is used strictly to draft structured natural language commentary from structured KPI deltas.
-- **Problem Statement:** Consultants spend 14+ hours every week manually copying metrics across 3 ad platforms and typing formulaic commentary, causing high burnout and a 12% calculation error rate.
-- **Proposed Solution:** API-based data ingestion pipeline combined with a prompt-engineered LLM drafter that compares current week vs prior week KPIs, flags key drivers, and pre-populates the commentary block for consultant review and 1-click signoff.
-- **Human-in-the-Loop Governance:** `MANDATORY_REVIEW`
-- **Score Breakdown:**
-  - Business Value: `4.8/5`
-  - Data Readiness: `4.5/5` (Notes: *High readiness: Google Ads, Meta Ads, and Looker Studio schemas are well-structured and accessible via official APIs.*)
-  - Delivery Confidence: `4.5/5`
-  - Implementation Effort: `2.5/5`
-  - Operational Risk: `1.5/5`
-- **Scoring Rationale:** High business value with strong data readiness, proven delivery model, and low operational friction.
-- **Dependencies & Integrations:** Meta Marketing API, Google Ads API, Looker Studio, Slack
-- **Key Assumptions & Limitations:**
-  - *Assumptions:* Consultants require an average of 10 minutes to review and polish generated drafts rather than 75 minutes drafting from scratch.; API connectors remain stable with standard rate limits.
-  - *Limitations:* AI does not interpret external macro events (e.g. client website crash) unless manually flagged in prompt context.
 
 ---
 #### [OPP-09] Automated Monthly Client Health & Retention Risk Predictor
@@ -557,7 +557,7 @@ The implementation is structured into three consecutive 30-day sprints. Foundati
 ```mermaid
 flowchart LR
   subgraph P1 ["Phase 1: Days 1-30"]
-    R1["Security Setup & Vault"] --> R2["First Prototype: Client Onboarding Orchestrator & Automated Asset Collection Hub"]
+    R1["Security Setup & Vault"] --> R2["First Prototype: Automated Cross-Channel Performance Report Generator & Executive Summary Draft"]
     R2 --> G1{"Gate 1 Signoff"}
   end
   subgraph P2 ["Phase 2: Days 31-60"]
@@ -683,9 +683,9 @@ flowchart LR
 
 ## 10. Recommended First Prototype
 
-### Selection: **Client Onboarding Orchestrator & Automated Asset Collection Hub**
+### Selection: **Automated Cross-Channel Performance Report Generator & Executive Summary Draft**
 - **Why this was selected:**
-  AI is unnecessary here. This is a deterministic orchestration workflow best solved with webhook automations, standardized folder templates, and scheduled reminder triggers.
+  Rule-based automation handles deterministic API metric pulls and variance math; LLM is used strictly to draft structured natural language commentary from structured KPI deltas.
 - **Key Success Factors for Prototype:**
   1. Low technical friction (structured Looker Studio / Ads API metrics + deterministic aggregation).
   2. Zero external client exposure during initial testing (internal consultant review before dispatch).
@@ -714,7 +714,7 @@ To proceed with Phase 1 deployment, leadership sign-off is required on the follo
 ### Immediate Action Plan (Next 14 Days)
 1. Execute Enterprise AI vendor agreements with Zero-Data-Retention addendums.
 2. Provision dedicated API vault credentials and configure scoped service accounts.
-3. Kick off Phase 1 prototype development for **Client Onboarding Orchestrator & Automated Asset Collection Hub**.
+3. Kick off Phase 1 prototype development for **Automated Cross-Channel Performance Report Generator & Executive Summary Draft**.
 4. Conduct Week 2 check-in on Looker Studio / Google Sheets schema consistency.
 
 ---

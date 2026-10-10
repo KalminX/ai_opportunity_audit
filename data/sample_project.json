@@ -678,9 +678,9 @@
         "AI does not interpret external macro events (e.g. client website crash) unless manually flagged in prompt context."
       ],
       "scoring_inputs": {
-        "business_value": 4.8,
+        "business_value": 5.0,
         "data_readiness": 4.5,
-        "delivery_confidence": 4.5,
+        "delivery_confidence": 4.8,
         "implementation_effort": 2.5,
         "operational_risk": 1.5,
         "hard_stop_triggered": false,

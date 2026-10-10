@@ -33,8 +33,8 @@
 - **Decision Engine:** Evaluated across Business Value (30%), Data Readiness (20%), Delivery Confidence (20%), Implementation Effort (15% penalty), and Operational Risk (15% penalty).
 - **Hard-Stop Risk Protection:** Autonomous high-stakes publishing and unvetted PII transfers are strictly blocked.
 - **Top Initiatives:**
-  - **#1 [OPP-02]: Client Onboarding Orchestrator & Automated Asset Collection Hub** (Score: 87.5/100 | Tier: `Quick Win`)
-  - **#2 [OPP-01]: Automated Cross-Channel Performance Report Generator & Executive Summary Draft** (Score: 86.0/100 | Tier: `Quick Win`)
+  - **#1 [OPP-01]: Automated Cross-Channel Performance Report Generator & Executive Summary Draft** (Score: 89.0/100 | Tier: `Quick Win`)
+  - **#2 [OPP-02]: Client Onboarding Orchestrator & Automated Asset Collection Hub** (Score: 87.5/100 | Tier: `Quick Win`)
   - **#3 [OPP-09]: Automated Monthly Client Health & Retention Risk Predictor** (Score: 78.8/100 | Tier: `Quick Win`)
   - **#4 [OPP-03]: Smart Inbound Lead Enrichment & Routing Assistant** (Score: 77.1/100 | Tier: `Quick Win`)
 
@@ -57,7 +57,7 @@
 ---
 
 ## Slide 7: 90-Day Phased Roadmap
-- **Phase 1 (Days 1–30):** Foundations, API security & First Prototype (**Client Onboarding Orchestrator & Automated Asset Collection Hub**).
+- **Phase 1 (Days 1–30):** Foundations, API security & First Prototype (**Automated Cross-Channel Performance Report Generator & Executive Summary Draft**).
 - **Phase 2 (Days 31–60):** Onboarding Hub & Inbound Lead Triage.
 - **Phase 3 (Days 61–90):** Proposal Drafter & Invoice Reconciliation.
 

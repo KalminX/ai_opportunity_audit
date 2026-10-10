@@ -6,13 +6,13 @@
 
 ## Roadmap Architecture & Governance Principles
 1. **Foundations First:** Complete Zero-Data-Retention agreements, access credential vaulting, and automated PII scrubbers before connecting live client data feeds.
-2. **Internal Prototype Validation:** The initial 30-day prototype (**Client Onboarding Orchestrator & Automated Asset Collection Hub**) is evaluated internally by consultants with 100% human sign-off before client exposure.
+2. **Internal Prototype Validation:** The initial 30-day prototype (**Automated Cross-Channel Performance Report Generator & Executive Summary Draft**) is evaluated internally by consultants with 100% human sign-off before client exposure.
 3. **Stage Gates:** Every 30 days features a formal executive Go / No-Go review before proceeding to subsequent workflow integrations.
 
 ```mermaid
 flowchart LR
   subgraph P1 ["Phase 1: Days 1–30"]
-    S1["Security & Secrets Vault"] --> P_Proto["First Prototype: Client Onboarding Orchestrator & Automated Asset Collection Hub"]
+    S1["Security & Secrets Vault"] --> P_Proto["First Prototype: Automated Cross-Channel Performance Report Generator & Executive Summary Draft"]
     P_Proto --> Gate1{"Gate 1: Client Services Signoff"}
   end
   subgraph P2 ["Phase 2: Days 31–60"]
@@ -150,5 +150,5 @@ flowchart LR
 
 ---
 
-## Prototype Selection Rationale: Client Onboarding Orchestrator & Automated Asset Collection Hub
-AI is unnecessary here. This is a deterministic orchestration workflow best solved with webhook automations, standardized folder templates, and scheduled reminder triggers.
+## Prototype Selection Rationale: Automated Cross-Channel Performance Report Generator & Executive Summary Draft
+Rule-based automation handles deterministic API metric pulls and variance math; LLM is used strictly to draft structured natural language commentary from structured KPI deltas.

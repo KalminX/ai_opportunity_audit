@@ -30,9 +30,9 @@
       "AI does not interpret external macro events (e.g. client website crash) unless manually flagged in prompt context."
     ],
     "scoring_inputs": {
-      "business_value": 4.8,
+      "business_value": 5.0,
       "data_readiness": 4.5,
-      "delivery_confidence": 4.5,
+      "delivery_confidence": 4.8,
       "implementation_effort": 2.5,
       "operational_risk": 1.5,
       "hard_stop_triggered": false,
@@ -51,8 +51,8 @@
       "notes": "Massive consultant capacity unlock across 1,456 weekly reports."
     },
     "scoring_breakdown": {
-      "rank": 2,
-      "final_score": 86.0,
+      "rank": 1,
+      "final_score": 89.0,
       "tier": "Quick Win",
       "is_hard_stop_blocked": false,
       "hard_stop_reason": null,
@@ -121,7 +121,7 @@
       "notes": "Reduces client onboarding cycle time from 14 days to 3 days."
     },
     "scoring_breakdown": {
-      "rank": 1,
+      "rank": 2,
       "final_score": 87.5,
       "tier": "Quick Win",
       "is_hard_stop_blocked": false,
