@@ -269,3 +269,11 @@ When you run `ai-audit report`, the toolkit exports:
 
 ---
 *Built with Python 3.13, Jinja2, and pytest.*
+
+
+## 🖼️ Application Screenshots
+
+| Executive Opportunity Dashboard |
+|:---:|
+| ![Executive Dashboard](screenshots/01_executive_dashboard.png) |
+| *Comprehensive Audit Dashboard with Opportunity Matrix, ROI Scoring, & Process Maps* |
