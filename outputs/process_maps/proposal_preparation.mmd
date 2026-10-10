@@ -1,0 +1,16 @@
+flowchart TD
+  subgraph SG1 ["Workflow: Client Proposal & Pitch Preparation (Strategy & Sales)"]
+    proposal_preparation_start(["Start: Client Proposal & Pitch Preparation Trigger"])
+    prop_01["<b>Step 1: Review Discovery Notes & Scope</b><br/>Actor: Account Director | System: HubSpot / Google Docs<br/>Time: 90 mins | Status:  ✍️ [Manual]"]
+    prop_02["<b>Step 2: Search Historical Case Studies & Proof Points</b><br/>Actor: Senior Consultant | System: Google Drive<br/>Time: 240 mins | Status:  ✍️ [Manual] ⚠️ [Bottleneck]<br/><i>Bottleneck: Unindexed Google Drive makes finding specific past ROAS benchmarks very slow.</i>"]
+    prop_03["<b>Step 3: Draft Custom Strategy & Deliverable Slides</b><br/>Actor: Senior Consultant | System: Google Slides<br/>Time: 480 mins | Status:  ✍️ [Manual] ⚠️ [Bottleneck]<br/><i>Bottleneck: Extensive repetitive drafting of standard strategy frameworks.</i>"]
+    prop_04{"🛡️ Approval Gate: <b>Step 4: Executive Review & Pricing Signoff</b><br/>Actor: CEO / Founder | System: Google Slides & Sheets<br/>Time: 60 mins | Status:  ✍️ [Manual]"}
+  end
+  proposal_preparation_start --> prop_01
+  prop_01 --> prop_02
+  prop_02 --> prop_03
+  prop_03 --> prop_04
+    proposal_preparation_end(["End: Workflow Complete"])
+  prop_04 --> proposal_preparation_end
+  style prop_02 fill:#fee2e2,stroke:#ef4444,stroke-width:2px,color:#991b1b
+  style prop_03 fill:#fee2e2,stroke:#ef4444,stroke-width:2px,color:#991b1b

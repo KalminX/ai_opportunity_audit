@@ -1,0 +1,37 @@
+# Security & Data-Readiness Assessment and Risk Register
+**Organization:** {{ project.business_context.company_name }} | **Audit Date:** {{ project.audit_date }}  
+**Assessed By:** {{ project.consultant_name }}  
+
+> **Governance Disclaimer:** {{ security_disclaimer }}
+
+---
+
+## 1. Security & Data Readiness Assessment Checklist
+
+- **Overall Readiness Score:** `{{ security_summary.readiness_pct }}%`
+- **Passed Dimensions:** `{{ security_summary.pass_count }} / {{ security_summary.total_items }}`
+- **Items Requiring Remediation:** `{{ security_summary.needs_attention_count }}`
+- **Failed Dimensions:** `{{ security_summary.fail_count }}`
+
+| ID | Domain | Requirement | Status | Current Practice & Planned Remediation |
+| :--- | :--- | :--- | :---: | :--- |
+{% for item in project.security_checklist %}
+| `{{ item.id }}` | **{{ item.category }}** | {{ item.requirement }} | `{{ item.status }}` | **Current:** {{ item.notes }}<br/>*Remediation Plan:* {{ item.remediation_action }} |
+{% endfor %}
+
+---
+
+## 2. Operational Risk Register (Pre-Mitigation vs Post-Mitigation)
+
+| Risk ID | Category | Threat / Risk Scenario | Inherent Risk Score | Mitigation & Guardrail Strategy | Residual Risk Score | Risk Owner |
+| :--- | :--- | :--- | :---: | :--- | :---: | :--- |
+{% for r in project.risk_register %}
+| `{{ r.risk_id }}` | **{{ r.category }}** | {{ r.description }} | **{{ r.inherent_risk_level }}** ({{ r.inherent_risk_score }}/25) | {{ r.mitigation_strategy }} | **{{ r.residual_risk_level }}** ({{ r.residual_risk_score }}/25) | `{{ r.owner }}` |
+{% endfor %}
+
+---
+
+## 3. Human-in-the-Loop Safeguards & Hard-Stop Policies
+1. **Zero Autonomous Write-Access to Live Budgets / Contracts:** Autonomous financial allocation or client ad modifications without prior human approval are strictly prohibited.
+2. **Deterministic Output Grounding:** All AI commentary drafters must be constrained to temperature <= 0.2 and fed only verified deterministic metric deltas.
+3. **Audit Trail Logging:** All model inputs, outputs, and user approval timestamps must be captured in immutable logging sinks.

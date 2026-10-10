@@ -1,0 +1,13 @@
+flowchart TD
+  subgraph SG1 ["Workflow: Contractor & Vendor Invoice Reconciliation (Operations & Finance)"]
+    invoice_processing_start(["Start: Contractor & Vendor Invoice Reconciliation Trigger"])
+    inv_01["<b>Step 1: Extract PDF Invoice Line Items</b><br/>Actor: Finance Coordinator | System: Gmail / PDF Reader<br/>Time: 15 mins | Status:  ✍️ [Manual]"]
+    inv_02["<b>Step 2: Verify Against Asana Milestones & Rate Caps</b><br/>Actor: Finance Coordinator | System: Asana & Google Sheets<br/>Time: 20 mins | Status:  ✍️ [Manual] ⚠️ [Bottleneck]<br/><i>Bottleneck: Tedious manual cross-referencing of Asana task IDs and contractor spreadsheets.</i>"]
+    inv_03{"🛡️ Approval Gate: <b>Step 3: Create Bill in QuickBooks & Schedule Payment</b><br/>Actor: Ops & Finance Lead | System: QuickBooks Online<br/>Time: 10 mins | Status:  ✍️ [Manual]"}
+  end
+  invoice_processing_start --> inv_01
+  inv_01 --> inv_02
+  inv_02 --> inv_03
+    invoice_processing_end(["End: Workflow Complete"])
+  inv_03 --> invoice_processing_end
+  style inv_02 fill:#fee2e2,stroke:#ef4444,stroke-width:2px,color:#991b1b

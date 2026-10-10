@@ -1,0 +1,615 @@
+[
+  {
+    "id": "OPP-01",
+    "title": "Automated Cross-Channel Performance Report Generator & Executive Summary Draft",
+    "description": "Automate weekly ad platform data aggregation via APIs into Looker Studio, and use an LLM assistant to draft first-pass executive commentary highlighting key weekly variances for consultant review.",
+    "workflow_id": "weekly_reporting",
+    "problem_statement": "Consultants spend 14+ hours every week manually copying metrics across 3 ad platforms and typing formulaic commentary, causing high burnout and a 12% calculation error rate.",
+    "proposed_solution": "API-based data ingestion pipeline combined with a prompt-engineered LLM drafter that compares current week vs prior week KPIs, flags key drivers, and pre-populates the commentary block for consultant review and 1-click signoff.",
+    "automation_type": "HYBRID",
+    "why_ai_or_why_not": "Rule-based automation handles deterministic API metric pulls and variance math; LLM is used strictly to draft structured natural language commentary from structured KPI deltas.",
+    "human_in_the_loop": "MANDATORY_REVIEW",
+    "responsible_owner": "David Chen (Senior Consultant)",
+    "data_readiness_notes": "High readiness: Google Ads, Meta Ads, and Looker Studio schemas are well-structured and accessible via official APIs.",
+    "dependencies": [
+      "Looker Studio data connectors",
+      "Enterprise LLM API endpoint with Zero-Data-Retention"
+    ],
+    "required_integrations": [
+      "Meta Marketing API",
+      "Google Ads API",
+      "Looker Studio",
+      "Slack"
+    ],
+    "evidence_level": "MEASURED",
+    "assumptions": [
+      "Consultants require an average of 10 minutes to review and polish generated drafts rather than 75 minutes drafting from scratch.",
+      "API connectors remain stable with standard rate limits."
+    ],
+    "limitations": [
+      "AI does not interpret external macro events (e.g. client website crash) unless manually flagged in prompt context."
+    ],
+    "scoring_inputs": {
+      "business_value": 4.8,
+      "data_readiness": 4.5,
+      "delivery_confidence": 4.5,
+      "implementation_effort": 2.5,
+      "operational_risk": 1.5,
+      "hard_stop_triggered": false,
+      "hard_stop_reason": null
+    },
+    "financial_inputs": {
+      "role_title": "Senior Consultant / Strategist",
+      "hourly_rate_usd": 75.0,
+      "annual_volume": 1456.0,
+      "handling_time_hours": 1.25,
+      "automation_coverage_pct": 0.75,
+      "human_review_overhead_pct": 0.15,
+      "implementation_cost_usd": 7500.0,
+      "annual_recurring_cost_usd": 1800.0,
+      "direct_cash_savings_usd": 0.0,
+      "notes": "Massive consultant capacity unlock across 1,456 weekly reports."
+    },
+    "scoring_breakdown": {
+      "rank": 2,
+      "final_score": 86.0,
+      "tier": "Quick Win",
+      "is_hard_stop_blocked": false,
+      "hard_stop_reason": null,
+      "explanation": "High business value with strong data readiness, proven delivery model, and low operational friction."
+    },
+    "financial_projection_expected": {
+      "baseline_annual_hours": 1820.0,
+      "net_hours_saved_annual": 1160.2,
+      "capacity_released_value_usd": 87018.75,
+      "direct_cash_savings_usd": 0.0,
+      "total_gross_annual_value_usd": 87018.75,
+      "net_first_year_benefit_usd": 77718.75,
+      "payback_period_months": 1.1
+    }
+  },
+  {
+    "id": "OPP-02",
+    "title": "Client Onboarding Orchestrator & Automated Asset Collection Hub",
+    "description": "Trigger automated Asana board provisioning, Google Drive folder tree generation, and automated client asset reminder cadence upon deal Closed-Won status in HubSpot.",
+    "workflow_id": "client_onboarding",
+    "problem_statement": "Manual folder creation, template duplication, and chasing client logins over email takes 8+ hours of Ops time per client and delays kickoff by 14 days.",
+    "proposed_solution": "Webhook-driven integration between HubSpot, Asana, and Google Drive that auto-provisions standardized workspaces instantly and sends automated WhatsApp/Email reminders for missing access tokens.",
+    "automation_type": "RULE_BASED",
+    "why_ai_or_why_not": "AI is unnecessary here. This is a deterministic orchestration workflow best solved with webhook automations, standardized folder templates, and scheduled reminder triggers.",
+    "human_in_the_loop": "EXCEPTION_ONLY",
+    "responsible_owner": "Elena Rostova (Head of Client Services)",
+    "data_readiness_notes": "High readiness: Standard folder templates and Asana board blueprints already exist in Google Drive.",
+    "dependencies": [
+      "HubSpot Webhooks",
+      "Asana API",
+      "Google Workspace Admin API"
+    ],
+    "required_integrations": [
+      "HubSpot CRM",
+      "Asana",
+      "Google Drive",
+      "Slack"
+    ],
+    "evidence_level": "MEASURED",
+    "assumptions": [
+      "Clients respond faster to an interactive checklist portal than scattered email threads.",
+      "Reduces administrative setup from 8 hours to 30 minutes per new client."
+    ],
+    "limitations": [
+      "Third-party platform 2FA approvals still require human client intervention."
+    ],
+    "scoring_inputs": {
+      "business_value": 4.2,
+      "data_readiness": 4.8,
+      "delivery_confidence": 4.8,
+      "implementation_effort": 2.0,
+      "operational_risk": 1.2,
+      "hard_stop_triggered": false,
+      "hard_stop_reason": null
+    },
+    "financial_inputs": {
+      "role_title": "Operations Coordinator",
+      "hourly_rate_usd": 50.0,
+      "annual_volume": 36.0,
+      "handling_time_hours": 8.0,
+      "automation_coverage_pct": 0.8,
+      "human_review_overhead_pct": 0.1,
+      "implementation_cost_usd": 4500.0,
+      "annual_recurring_cost_usd": 800.0,
+      "direct_cash_savings_usd": 0.0,
+      "notes": "Reduces client onboarding cycle time from 14 days to 3 days."
+    },
+    "scoring_breakdown": {
+      "rank": 1,
+      "final_score": 87.5,
+      "tier": "Quick Win",
+      "is_hard_stop_blocked": false,
+      "hard_stop_reason": null,
+      "explanation": "High business value with strong data readiness, proven delivery model, and low operational friction."
+    },
+    "financial_projection_expected": {
+      "baseline_annual_hours": 288.0,
+      "net_hours_saved_annual": 207.4,
+      "capacity_released_value_usd": 10368.0,
+      "direct_cash_savings_usd": 0.0,
+      "total_gross_annual_value_usd": 10368.0,
+      "net_first_year_benefit_usd": 5068.0,
+      "payback_period_months": 5.6
+    }
+  },
+  {
+    "id": "OPP-03",
+    "title": "Smart Inbound Lead Enrichment & Routing Assistant",
+    "description": "Instantly enrich inbound lead form submissions with company firmographics, classify intent signals using an LLM, and post an enriched summary card into Slack with 1-click Director assignment.",
+    "workflow_id": "client_enquiry_triage",
+    "problem_statement": "Junior SDRs spend 20 minutes researching every lead across LinkedIn and Google, creating a 2-4 hour latency before the lead receives outreach.",
+    "proposed_solution": "Automated webhook captures form submit, enriches domain via Clearbit/Apollo API, uses an LLM to evaluate ICP match score, and posts an interactive Slack card allowing the Director to claim the lead with 1 click.",
+    "automation_type": "HYBRID",
+    "why_ai_or_why_not": "APIs fetch firmographics; LLM classifies qualitative free-text 'tell us about your goals' responses into structured ICP score and pain categories.",
+    "human_in_the_loop": "MANDATORY_REVIEW",
+    "responsible_owner": "Marcus Vance (CEO)",
+    "data_readiness_notes": "Moderate readiness: HubSpot form fields are structured; free-text notes require classification.",
+    "dependencies": [
+      "HubSpot Form Webhook",
+      "Enrichment API",
+      "Slack Interactive Webhook"
+    ],
+    "required_integrations": [
+      "HubSpot CRM",
+      "Slack",
+      "Clearbit / Apollo API"
+    ],
+    "evidence_level": "MEASURED",
+    "assumptions": [
+      "Faster response time under 15 minutes increases discovery call conversion rate by 20%."
+    ],
+    "limitations": [
+      "Leads with non-corporate email domains (e.g. gmail.com) require fallback to manual research."
+    ],
+    "scoring_inputs": {
+      "business_value": 4.0,
+      "data_readiness": 4.0,
+      "delivery_confidence": 4.2,
+      "implementation_effort": 2.2,
+      "operational_risk": 1.5,
+      "hard_stop_triggered": false,
+      "hard_stop_reason": null
+    },
+    "financial_inputs": {
+      "role_title": "Junior SDR / Account Exec",
+      "hourly_rate_usd": 45.0,
+      "annual_volume": 350.0,
+      "handling_time_hours": 0.58,
+      "automation_coverage_pct": 0.7,
+      "human_review_overhead_pct": 0.15,
+      "implementation_cost_usd": 3800.0,
+      "annual_recurring_cost_usd": 900.0,
+      "direct_cash_savings_usd": 0.0,
+      "notes": "Reduces response latency from 3 hours to 5 minutes."
+    },
+    "scoring_breakdown": {
+      "rank": 4,
+      "final_score": 77.1,
+      "tier": "Quick Win",
+      "is_hard_stop_blocked": false,
+      "hard_stop_reason": null,
+      "explanation": "High business value with strong data readiness, proven delivery model, and low operational friction."
+    },
+    "financial_projection_expected": {
+      "baseline_annual_hours": 203.0,
+      "net_hours_saved_annual": 120.8,
+      "capacity_released_value_usd": 5435.32,
+      "direct_cash_savings_usd": 0.0,
+      "total_gross_annual_value_usd": 5435.32,
+      "net_first_year_benefit_usd": 735.32,
+      "payback_period_months": 10.1
+    }
+  },
+  {
+    "id": "OPP-04",
+    "title": "Proposal Knowledge Retrieval & Modular Slide Drafter",
+    "description": "Implement semantic retrieval across 100+ past client proposals, case studies, and performance benchmarks to automatically assemble modular slide drafts and tailored strategy proposals.",
+    "workflow_id": "proposal_preparation",
+    "problem_statement": "Senior consultants spend 20 hours per pitch scouring Google Drive for past case studies, reformatting slides, and retyping strategy frameworks from scratch.",
+    "proposed_solution": "Index historical case studies and pitch decks into a secure vector knowledge store. Allow consultants to input prospect profile and receive a modular 15-slide Google Slides draft with matching industry proof points and ROI models.",
+    "automation_type": "AI_LLM",
+    "why_ai_or_why_not": "LLM with semantic search (RAG) is essential to match unstructured prospect requirements to relevant past case studies across hundreds of historical presentations.",
+    "human_in_the_loop": "MANDATORY_REVIEW",
+    "responsible_owner": "Elena Rostova (Head of Client Services)",
+    "data_readiness_notes": "Moderate readiness: Historical decks are in Google Drive but lack uniform tagging.",
+    "dependencies": [
+      "Google Drive Indexer",
+      "Vector Database / Embedding Pipeline",
+      "Google Slides API"
+    ],
+    "required_integrations": [
+      "Google Drive",
+      "Google Slides",
+      "HubSpot CRM"
+    ],
+    "evidence_level": "OBSERVED_INTERVIEW",
+    "assumptions": [
+      "Cuts proposal preparation time by 55% while maintaining bespoke quality.",
+      "Past proposals can be cleaned of confidential client names before indexing."
+    ],
+    "limitations": [
+      "Requires strict review of pricing and proprietary strategies before dispatch."
+    ],
+    "scoring_inputs": {
+      "business_value": 4.6,
+      "data_readiness": 3.2,
+      "delivery_confidence": 3.6,
+      "implementation_effort": 3.8,
+      "operational_risk": 2.2,
+      "hard_stop_triggered": false,
+      "hard_stop_reason": null
+    },
+    "financial_inputs": {
+      "role_title": "Senior Consultant / Strategist",
+      "hourly_rate_usd": 85.0,
+      "annual_volume": 60.0,
+      "handling_time_hours": 20.0,
+      "automation_coverage_pct": 0.55,
+      "human_review_overhead_pct": 0.2,
+      "implementation_cost_usd": 12000.0,
+      "annual_recurring_cost_usd": 2400.0,
+      "direct_cash_savings_usd": 0.0,
+      "notes": "Saves ~528 senior consultant hours annually on pitches."
+    },
+    "scoring_breakdown": {
+      "rank": 8,
+      "final_score": 66.0,
+      "tier": "Strategic Bet",
+      "is_hard_stop_blocked": false,
+      "hard_stop_reason": null,
+      "explanation": "Substantial strategic upside; may require moderate integration effort or foundational data prep."
+    },
+    "financial_projection_expected": {
+      "baseline_annual_hours": 1200.0,
+      "net_hours_saved_annual": 528.0,
+      "capacity_released_value_usd": 44880.0,
+      "direct_cash_savings_usd": 0.0,
+      "total_gross_annual_value_usd": 44880.0,
+      "net_first_year_benefit_usd": 30480.0,
+      "payback_period_months": 3.4
+    }
+  },
+  {
+    "id": "OPP-05",
+    "title": "Contractor Timesheet & Invoice Automated 3-Way Reconciliation",
+    "description": "Extract invoice line items from contractor PDF invoices using OCR, match against Asana milestone logs, and stage pre-coded bills in QuickBooks for 1-click Finance approval.",
+    "workflow_id": "invoice_processing",
+    "problem_statement": "Month-end invoice matching takes 35+ hours of finance time, manually verifying 45 contractor bills against Asana task logs and rate agreements.",
+    "proposed_solution": "Document parsing service extracts contractor name, hours, rate, and task references; matches against Asana completed task logs; flags variances over 5%; and drafts QuickBooks bills.",
+    "automation_type": "HYBRID",
+    "why_ai_or_why_not": "OCR / Document AI extracts unstructured table fields from varied PDF layouts; rule-based script executes deterministic 3-way matching against Asana and QuickBooks.",
+    "human_in_the_loop": "MANDATORY_REVIEW",
+    "responsible_owner": "Sarah Jenkins (Ops & Finance Lead)",
+    "data_readiness_notes": "Moderate readiness: Invoices come in varying PDF formats; Asana task tagging needs standardization.",
+    "dependencies": [
+      "PDF OCR Extractor",
+      "QuickBooks API",
+      "Asana API"
+    ],
+    "required_integrations": [
+      "QuickBooks Online",
+      "Asana",
+      "Gmail"
+    ],
+    "evidence_level": "MEASURED",
+    "assumptions": [
+      "80% of contractor invoices adhere to agreed task reference formatting."
+    ],
+    "limitations": [
+      "Handwritten or non-standard scanned receipts require manual handling."
+    ],
+    "scoring_inputs": {
+      "business_value": 3.8,
+      "data_readiness": 3.8,
+      "delivery_confidence": 4.0,
+      "implementation_effort": 2.6,
+      "operational_risk": 1.8,
+      "hard_stop_triggered": false,
+      "hard_stop_reason": null
+    },
+    "financial_inputs": {
+      "role_title": "Operations & Finance Lead",
+      "hourly_rate_usd": 60.0,
+      "annual_volume": 540.0,
+      "handling_time_hours": 0.67,
+      "automation_coverage_pct": 0.7,
+      "human_review_overhead_pct": 0.15,
+      "implementation_cost_usd": 5500.0,
+      "annual_recurring_cost_usd": 1200.0,
+      "direct_cash_savings_usd": 3600.0,
+      "notes": "Frees up 215 hours of finance time and saves $3.6k in bookkeeping fees."
+    },
+    "scoring_breakdown": {
+      "rank": 6,
+      "final_score": 71.0,
+      "tier": "Quick Win",
+      "is_hard_stop_blocked": false,
+      "hard_stop_reason": null,
+      "explanation": "High business value with strong data readiness, proven delivery model, and low operational friction."
+    },
+    "financial_projection_expected": {
+      "baseline_annual_hours": 361.8,
+      "net_hours_saved_annual": 215.3,
+      "capacity_released_value_usd": 12916.26,
+      "direct_cash_savings_usd": 3600.0,
+      "total_gross_annual_value_usd": 16516.26,
+      "net_first_year_benefit_usd": 9816.26,
+      "payback_period_months": 4.3
+    }
+  },
+  {
+    "id": "OPP-06",
+    "title": "Client Meeting Intelligence & Action Item Synchronizer",
+    "description": "Automatically summarize client Zoom/Google Meet call recordings, extract action items and deadlines, and draft pre-populated Asana tasks assigned to consultants with PM signoff.",
+    "workflow_id": "client_onboarding",
+    "problem_statement": "Consultants spend 30-45 minutes post-meeting writing recap emails and creating Asana tickets; key client action items frequently get dropped.",
+    "proposed_solution": "AI meeting transcription pipeline extracts structured action items with assignees and context, posting a draft summary to Slack with 1-click 'Sync to Asana' approval.",
+    "automation_type": "AI_LLM",
+    "why_ai_or_why_not": "LLM NLP is necessary to distill conversational audio transcripts into concise, actionable task definitions.",
+    "human_in_the_loop": "MANDATORY_REVIEW",
+    "responsible_owner": "Elena Rostova (Head of Client Services)",
+    "data_readiness_notes": "High readiness: Audio recording APIs from Google Meet / Zoom are standardized.",
+    "dependencies": [
+      "Meeting Bot API",
+      "Enterprise Transcription LLM",
+      "Asana API"
+    ],
+    "required_integrations": [
+      "Google Meet / Zoom",
+      "Asana",
+      "Slack"
+    ],
+    "evidence_level": "OBSERVED_INTERVIEW",
+    "assumptions": [
+      "Consultants review and approve generated tasks in under 2 minutes."
+    ],
+    "limitations": [
+      "Requires client consent disclosure for recording in accordance with two-party consent laws."
+    ],
+    "scoring_inputs": {
+      "business_value": 3.6,
+      "data_readiness": 4.2,
+      "delivery_confidence": 4.2,
+      "implementation_effort": 2.0,
+      "operational_risk": 2.0,
+      "hard_stop_triggered": false,
+      "hard_stop_reason": null
+    },
+    "financial_inputs": {
+      "role_title": "Consultant / Project Manager",
+      "hourly_rate_usd": 70.0,
+      "annual_volume": 520.0,
+      "handling_time_hours": 0.5,
+      "automation_coverage_pct": 0.65,
+      "human_review_overhead_pct": 0.15,
+      "implementation_cost_usd": 3500.0,
+      "annual_recurring_cost_usd": 1500.0,
+      "direct_cash_savings_usd": 0.0,
+      "notes": "Saves ~142 hours of post-meeting administrative task creation."
+    },
+    "scoring_breakdown": {
+      "rank": 5,
+      "final_score": 74.0,
+      "tier": "Quick Win",
+      "is_hard_stop_blocked": false,
+      "hard_stop_reason": null,
+      "explanation": "High business value with strong data readiness, proven delivery model, and low operational friction."
+    },
+    "financial_projection_expected": {
+      "baseline_annual_hours": 260.0,
+      "net_hours_saved_annual": 143.7,
+      "capacity_released_value_usd": 10055.5,
+      "direct_cash_savings_usd": 0.0,
+      "total_gross_annual_value_usd": 10055.5,
+      "net_first_year_benefit_usd": 5055.5,
+      "payback_period_months": 4.9
+    }
+  },
+  {
+    "id": "OPP-07",
+    "title": "Internal SOP & Campaign Playbook Co-pilot for Junior Staff",
+    "description": "A private RAG-powered chatbot in Slack that indexes agency SOPs, ad policy guidelines, and tracking setup playbooks to provide immediate step-by-step guidance to junior media analysts.",
+    "workflow_id": "weekly_reporting",
+    "problem_statement": "Junior analysts spend hours searching scattered Drive folders or interrupting senior consultants with repetitive questions on pixel setup and UTM conventions.",
+    "proposed_solution": "Slack bot answering operational questions with exact citations to verified agency Notion/Google Drive SOPs.",
+    "automation_type": "AI_LLM",
+    "why_ai_or_why_not": "RAG search across qualitative SOP documentation enables natural question-answering with direct source citations.",
+    "human_in_the_loop": "EXCEPTION_ONLY",
+    "responsible_owner": "David Chen (Senior Consultant)",
+    "data_readiness_notes": "Moderate readiness: SOPs exist but need centralization and review for currency.",
+    "dependencies": [
+      "Notion / Drive API",
+      "Vector Embeddings",
+      "Slack Bot Framework"
+    ],
+    "required_integrations": [
+      "Slack",
+      "Google Drive / Notion"
+    ],
+    "evidence_level": "OBSERVED_INTERVIEW",
+    "assumptions": [
+      "Reduces senior consultant interruptions by 4 hours/week across the team."
+    ],
+    "limitations": [
+      "Answers are only as good as the underlying documented SOPs."
+    ],
+    "scoring_inputs": {
+      "business_value": 3.4,
+      "data_readiness": 3.5,
+      "delivery_confidence": 4.0,
+      "implementation_effort": 2.4,
+      "operational_risk": 1.4,
+      "hard_stop_triggered": false,
+      "hard_stop_reason": null
+    },
+    "financial_inputs": {
+      "role_title": "Junior Analyst / Specialist",
+      "hourly_rate_usd": 45.0,
+      "annual_volume": 250.0,
+      "handling_time_hours": 1.0,
+      "automation_coverage_pct": 0.6,
+      "human_review_overhead_pct": 0.1,
+      "implementation_cost_usd": 4000.0,
+      "annual_recurring_cost_usd": 1000.0,
+      "direct_cash_savings_usd": 0.0,
+      "notes": "Reduces junior research time and senior consultant interruptions."
+    },
+    "scoring_breakdown": {
+      "rank": 7,
+      "final_score": 68.8,
+      "tier": "Strategic Bet",
+      "is_hard_stop_blocked": false,
+      "hard_stop_reason": null,
+      "explanation": "Substantial strategic upside; may require moderate integration effort or foundational data prep."
+    },
+    "financial_projection_expected": {
+      "baseline_annual_hours": 250.0,
+      "net_hours_saved_annual": 135.0,
+      "capacity_released_value_usd": 6075.0,
+      "direct_cash_savings_usd": 0.0,
+      "total_gross_annual_value_usd": 6075.0,
+      "net_first_year_benefit_usd": 1075.0,
+      "payback_period_months": 9.5
+    }
+  },
+  {
+    "id": "OPP-08",
+    "title": "Autonomous Direct-to-Client Live Campaign Auto-Publisher",
+    "description": "Unsupervised autonomous AI agent generating ad copy, uploading creatives, and adjusting live client advertising budgets directly in Meta & Google Ads without human consultant signoff.",
+    "workflow_id": "weekly_reporting",
+    "problem_statement": "Ad campaign adjustments and copywriting take several hours per week of manual campaign manager time.",
+    "proposed_solution": "Deploy an autonomous LLM agent with direct write API access to client ad accounts to autonomously rewrite copy, reallocate budgets, and publish new ad variants daily.",
+    "automation_type": "AI_LLM",
+    "why_ai_or_why_not": "Autonomous generative AI attempting real-time decision making on live ad budgets.",
+    "human_in_the_loop": "AUTONOMOUS",
+    "responsible_owner": "Paid Media Lead",
+    "data_readiness_notes": "High API access, but critical operational hazard.",
+    "dependencies": [
+      "Meta Write API",
+      "Google Ads Write API"
+    ],
+    "required_integrations": [
+      "Meta Ads",
+      "Google Ads"
+    ],
+    "evidence_level": "HYPOTHESIS_NEEDS_VALIDATION",
+    "assumptions": [
+      "Agent might hallucinate non-compliant claims or misallocate client ad budgets without oversight."
+    ],
+    "limitations": [
+      "Violates brand safety guidelines, agency master service agreements, and fiduciary liability standards."
+    ],
+    "scoring_inputs": {
+      "business_value": 3.5,
+      "data_readiness": 4.0,
+      "delivery_confidence": 2.0,
+      "implementation_effort": 4.5,
+      "operational_risk": 5.0,
+      "hard_stop_triggered": true,
+      "hard_stop_reason": "CRITICAL RISK: Unsupervised autonomous modifications to live client ad budgets and external brand copy violate agency contracts, risk severe financial liability, and fail human-in-the-loop governance standards. Blocked until strict mandatory human approval gate is architected."
+    },
+    "financial_inputs": {
+      "role_title": "Senior Paid Media Consultant",
+      "hourly_rate_usd": 75.0,
+      "annual_volume": 200.0,
+      "handling_time_hours": 2.0,
+      "automation_coverage_pct": 0.5,
+      "human_review_overhead_pct": 0.0,
+      "implementation_cost_usd": 15000.0,
+      "annual_recurring_cost_usd": 3000.0,
+      "direct_cash_savings_usd": 0.0,
+      "notes": "BLOCKED: High liability financial and brand safety risk."
+    },
+    "scoring_breakdown": {
+      "rank": 9,
+      "final_score": 0.0,
+      "tier": "Blocked",
+      "is_hard_stop_blocked": true,
+      "hard_stop_reason": "CRITICAL RISK: Unsupervised autonomous modifications to live client ad budgets and external brand copy violate agency contracts, risk severe financial liability, and fail human-in-the-loop governance standards. Blocked until strict mandatory human approval gate is architected.",
+      "explanation": "HARD-STOP TRIGGERED: CRITICAL RISK: Unsupervised autonomous modifications to live client ad budgets and external brand copy violate agency contracts, risk severe financial liability, and fail human-in-the-loop governance standards. Blocked until strict mandatory human approval gate is architected.. Despite a raw mathematical score of 40.6/100, this opportunity cannot proceed without fundamental risk mitigation and human governance safeguards."
+    },
+    "financial_projection_expected": {
+      "baseline_annual_hours": 400.0,
+      "net_hours_saved_annual": 200.0,
+      "capacity_released_value_usd": 15000.0,
+      "direct_cash_savings_usd": 0.0,
+      "total_gross_annual_value_usd": 15000.0,
+      "net_first_year_benefit_usd": -3000.0,
+      "payback_period_months": 15.0
+    }
+  },
+  {
+    "id": "OPP-09",
+    "title": "Automated Monthly Client Health & Retention Risk Predictor",
+    "description": "Rule-based heuristic scoring combining Asana milestone delivery velocity, weekly KPI goal attainment, and CRM communication frequency to flag churn-risk accounts for Director intervention.",
+    "workflow_id": "client_onboarding",
+    "problem_statement": "Client churn signals are often noticed too late (at 90-day review), leading to avoidable retainer cancellations.",
+    "proposed_solution": "Weekly automated health scorecard aggregating overdue Asana tasks, Looker Studio performance trends, and days since last client contact into a green/amber/red account health dashboard.",
+    "automation_type": "RULE_BASED",
+    "why_ai_or_why_not": "Deterministic business rules and thresholds are vastly superior and more explainable than black-box AI for churn risk flags.",
+    "human_in_the_loop": "EXCEPTION_ONLY",
+    "responsible_owner": "Elena Rostova (Head of Client Services)",
+    "data_readiness_notes": "Moderate readiness: Requires connecting Asana project completion data with HubSpot contact logs.",
+    "dependencies": [
+      "Asana API",
+      "HubSpot API",
+      "Looker Studio"
+    ],
+    "required_integrations": [
+      "Asana",
+      "HubSpot CRM",
+      "Slack"
+    ],
+    "evidence_level": "OBSERVED_INTERVIEW",
+    "assumptions": [
+      "Early churn detection saves at least 2 retainer accounts per year ($24k-$48k annual revenue)."
+    ],
+    "limitations": [
+      "Cannot measure informal offline client relationships without consultant check-ins."
+    ],
+    "scoring_inputs": {
+      "business_value": 4.4,
+      "data_readiness": 3.6,
+      "delivery_confidence": 4.4,
+      "implementation_effort": 2.4,
+      "operational_risk": 1.4,
+      "hard_stop_triggered": false,
+      "hard_stop_reason": null
+    },
+    "financial_inputs": {
+      "role_title": "Account Director",
+      "hourly_rate_usd": 90.0,
+      "annual_volume": 52.0,
+      "handling_time_hours": 1.5,
+      "automation_coverage_pct": 0.65,
+      "human_review_overhead_pct": 0.1,
+      "implementation_cost_usd": 4800.0,
+      "annual_recurring_cost_usd": 1000.0,
+      "direct_cash_savings_usd": 12000.0,
+      "notes": "Protects high-margin retainer revenue through proactive churn alerts."
+    },
+    "scoring_breakdown": {
+      "rank": 3,
+      "final_score": 78.8,
+      "tier": "Quick Win",
+      "is_hard_stop_blocked": false,
+      "hard_stop_reason": null,
+      "explanation": "High business value with strong data readiness, proven delivery model, and low operational friction."
+    },
+    "financial_projection_expected": {
+      "baseline_annual_hours": 78.0,
+      "net_hours_saved_annual": 45.6,
+      "capacity_released_value_usd": 4106.7,
+      "direct_cash_savings_usd": 12000.0,
+      "total_gross_annual_value_usd": 16106.7,
+      "net_first_year_benefit_usd": 10306.7,
+      "payback_period_months": 3.8
+    }
+  }
+]

@@ -1,0 +1,13 @@
+Metadata-Version: 2.4
+Name: ai-opportunity-audit
+Version: 1.0.0
+Summary: AI Opportunity Audit and Automation Roadmap Toolkit
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+Requires-Dist: jinja2>=3.1.2
+Provides-Extra: dev
+Requires-Dist: pytest>=7.0.0; extra == "dev"
+
+# AI Opportunity Audit and Automation Roadmap Toolkit
+
+A portfolio-quality, modular toolkit for consultants to assess service businesses, prioritize AI and automation opportunities, calculate workload and ROI scenarios, evaluate security and operational risks, and generate 90-day roadmaps and executive reports.

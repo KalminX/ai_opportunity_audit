@@ -1,0 +1,42 @@
+# Executive Brief: AI Opportunity Audit & Automation Roadmap
+**Client:** {{ project.business_context.company_name }} | **Date:** {{ project.audit_date }} | **Prepared By:** {{ project.consultant_name }}
+
+---
+
+### 1. The Strategic Opportunity
+{{ project.business_context.company_name }} currently incurs **{{ portfolio.total_baseline_hours | round(0) }} hours/year** in repetitive manual coordination across client reporting, onboarding, lead qualification, and proposal assembly. By implementing high-confidence, pragmatic automation and AI drafting assistants, the firm can release **{{ portfolio.total_net_hours_saved | round(0) }} hours/year** of senior staff capacity, generate **${{ "{:,.0f}".format(portfolio.total_gross_annual_value_usd) }}/year** in total gross value, and achieve full payback within **{{ portfolio.portfolio_payback_months }} months**.
+
+---
+
+### 2. Prioritised Initiatives Summary
+| Rank | ID | Initiative | Category | Feasibility | Net Hrs Freed | 1st Year Net Benefit |
+| :---: | :--- | :--- | :--- | :---: | :---: | :---: |
+{% for score in ranked_scores[:5] %}
+{% set opp = opp_map[score.opportunity_id] %}
+{% set fin = fin_map[score.opportunity_id] %}
+| **#{{ score.rank }}** | `{{ opp.id }}` | **{{ opp.title }}** | `{{ opp.automation_type }}` | High ({{ opp.scoring_inputs.delivery_confidence }}/5) | {{ fin.net_hours_saved_annual | round(0) }} hrs | ${{ "{:,.0f}".format(fin.net_first_year_benefit_usd) }} |
+{% endfor %}
+
+---
+
+### 3. Financial Return Snapshot (Expected Scenario)
+```
+  [ Gross Annual Value: ${{ "{:,.0f}".format(portfolio.total_gross_annual_value_usd) }}/yr ]
+  ├── Capacity Released:   ${{ "{:,.0f}".format(portfolio.total_capacity_released_usd) }}/yr ({{ portfolio.total_net_hours_saved | round(0) }} hrs)
+  └── Direct Cash Savings: ${{ "{:,.0f}".format(portfolio.total_direct_cash_savings_usd) }}/yr (Contractors/Tools)
+  
+  [ Implementation Investment: ${{ "{:,.0f}".format(portfolio.total_implementation_cost_usd) }} (One-Off) | Payback: {{ portfolio.portfolio_payback_months }} Months | 3-Yr ROI: {{ portfolio.portfolio_3yr_roi_pct }}% ]
+```
+
+---
+
+### 4. 90-Day Execution Phasing
+- **Phase 1 (Days 1–30 | ${{ "{:,.0f}".format(phase1_cost) }}):** Zero-Data-Retention security lockdown + First Prototype: **{{ first_prototype_title }}**.
+- **Phase 2 (Days 31–60):** Automated Onboarding Hub & Inbound Lead Qualification Assistant.
+- **Phase 3 (Days 61–90):** Proposal Knowledge Retrieval & Contractor Invoice Reconciliation.
+
+---
+
+### 5. Risk Safeguards & Leadership Actions
+- **Human-in-the-Loop Mandate:** Every external client deliverable and draft requires human approval prior to release.
+- **Immediate Decision:** Authorize Phase 1 deployment budget ($**{{ "{:,.0f}".format(phase1_cost) }}**) and designate project leads for testing.

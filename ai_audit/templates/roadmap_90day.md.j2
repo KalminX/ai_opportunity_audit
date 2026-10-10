@@ -1,0 +1,61 @@
+# 90-Day AI & Automation Implementation Roadmap
+**Client:** {{ project.business_context.company_name }} | **Audit Date:** {{ project.audit_date }}  
+**Lead Consultant:** {{ project.consultant_name }} | **Sponsor:** {{ project.client_contact }}
+
+---
+
+## Roadmap Architecture & Governance Principles
+1. **Foundations First:** Complete Zero-Data-Retention agreements, access credential vaulting, and automated PII scrubbers before connecting live client data feeds.
+2. **Internal Prototype Validation:** The initial 30-day prototype (**{{ first_prototype_title }}**) is evaluated internally by consultants with 100% human sign-off before client exposure.
+3. **Stage Gates:** Every 30 days features a formal executive Go / No-Go review before proceeding to subsequent workflow integrations.
+
+```mermaid
+flowchart LR
+  subgraph P1 ["Phase 1: Days 1–30"]
+    S1["Security & Secrets Vault"] --> P_Proto["First Prototype: {{ first_prototype_title }}"]
+    P_Proto --> Gate1{"Gate 1: Client Services Signoff"}
+  end
+  subgraph P2 ["Phase 2: Days 31–60"]
+    Gate1 --> W1["Client Onboarding Hub"]
+    Gate1 --> W2["Smart Inbound Lead Triage"]
+    W1 & W2 --> Gate2{"Gate 2: Executive Review"}
+  end
+  subgraph P3 ["Phase 3: Days 61–90"]
+    Gate2 --> W3["Proposal Knowledge Drafter"]
+    Gate2 --> W4["Contractor Invoice Reconciler"]
+    W3 & W4 --> Gate3(["Full Rollout & Value Review"])
+  end
+```
+
+---
+
+{% for phase_name, initiatives in roadmap_phases.items() %}
+## {{ phase_name }}
+
+{% for init in initiatives %}
+### 🎯 {{ init.title }} {% if init.is_first_prototype %}**(⭐ Recommended First Prototype)**{% endif %}
+- **Objective:** {{ init.objective }}
+- **Business Justification:** {{ init.business_justification }}
+- **Responsible Owner:** `{{ init.responsible_role }}`
+- **Estimated Effort:** `{{ init.estimated_effort_weeks }} weeks` | **Estimated Investment:** `${{ "{:,.0f}".format(init.estimated_cost_usd) }}`
+- **Key Deliverables:**
+{% for d in init.deliverables %}
+  - [ ] {{ d }}
+{% endfor %}
+- **Technical Dependencies & Baselines:**
+  - *Dependencies:* {{ init.dependencies | join(', ') }}
+  - *Baseline Requirements:* {{ init.baseline_requirements | join(', ') }}
+- **Measurable Success Metrics:**
+{% for sm in init.success_metrics %}
+  - 📈 {{ sm }}
+{% endfor %}
+- **Acceptance Criteria & Decision Gate:**
+  - *Acceptance:* {{ init.acceptance_criteria | join('; ') }}
+  - *Go/No-Go Gate:* **{{ init.go_no_go_gate }}**
+
+---
+{% endfor %}
+{% endfor %}
+
+## Prototype Selection Rationale: {{ first_prototype_title }}
+{{ first_prototype_rationale }}

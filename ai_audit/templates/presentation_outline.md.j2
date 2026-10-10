@@ -1,0 +1,68 @@
+# Executive Presentation: AI Opportunity Audit & Automation Roadmap
+**Client:** {{ project.business_context.company_name }}  
+**Date:** {{ project.audit_date }}  
+**Presenter:** {{ project.consultant_name }}  
+
+---
+
+## Slide 1: Title & Engagement Purpose
+- **Headline:** Unlocking High-Value Growth Through Practical AI & Automation
+- **Subtitle:** Strategic Operational Audit, Opportunity Prioritisation, and 90-Day Execution Roadmap
+- **Audience:** Executive Leadership & Department Heads
+
+---
+
+## Slide 2: The Core Challenge & Current Operational Reality
+- **Current State:** Fast-growing agency with 25 staff and ${{ "{:,.0f}".format(project.business_context.annual_revenue_usd) }} revenue.
+- **The Bottleneck:** Over **{{ portfolio.total_baseline_hours | round(0) }} hours/year** spent in manual data stitching, repetitive client reporting, manual onboarding, and proposal reconstruction.
+- **Impact:** Experienced consultants bogged down in administrative tasks rather than strategic client growth.
+
+---
+
+## Slide 3: Scope of Audit & Key Workflows Evaluated
+- Five primary workflows analyzed:
+  1. **Client Onboarding:** 14-day turnaround; fragmented forms and manual folder setups.
+  2. **Weekly Performance Reporting:** 12-16 hrs/week manual metrics copy-pasting.
+  3. **Inbound Client Enquiry Triage:** 2-4 hr latency in qualifying and routing leads.
+  4. **Proposal Preparation:** 18-25 hrs spent recreating slide decks from scratch.
+  5. **Contractor Invoice Processing:** 35+ hrs/month matching timesheets and POs.
+
+---
+
+## Slide 4: Prioritisation Framework & Scoring Matrix
+- **Decision Engine:** Evaluated across Business Value (30%), Data Readiness (20%), Delivery Confidence (20%), Implementation Effort (15% penalty), and Operational Risk (15% penalty).
+- **Hard-Stop Risk Protection:** Autonomous high-stakes publishing and unvetted PII transfers are strictly blocked.
+- **Top Initiatives:**
+{% for score in ranked_scores[:4] %}
+  - **#{{ score.rank }} [{{ score.opportunity_id }}]: {{ score.opportunity_title }}** (Score: {{ score.final_score }}/100 | Tier: `{{ score.tier }}`)
+{% endfor %}
+
+---
+
+## Slide 5: Projected Financial Returns & Capacity Release
+- **Net Hours Freed:** **{{ portfolio.total_net_hours_saved | round(0) }} hrs/year** (equivalent to ~{{ (portfolio.total_net_hours_saved / 1800.0) | round(1) }} full-time consultants).
+- **Released Capacity Value:** **${{ "{:,.0f}".format(portfolio.total_capacity_released_usd) }}/year**.
+- **Direct Cash Savings:** **${{ "{:,.0f}".format(portfolio.total_direct_cash_savings_usd) }}/year**.
+- **Net First-Year Value:** **${{ "{:,.0f}".format(portfolio.total_net_first_year_benefit_usd) }}**.
+- **Payback Horizon:** **{{ portfolio.portfolio_payback_months }} months** (3-Year ROI: **{{ portfolio.portfolio_3yr_roi_pct }}%**).
+
+---
+
+## Slide 6: Security, Privacy & Human-in-the-Loop Governance
+- **Zero-Data-Retention:** Contractual enforcement that client data is never used for foundation model training.
+- **Mandatory Human-in-the-Loop:** All client-facing deliverables and drafts require explicit staff sign-off.
+- **Granular Access Control:** Scoped API secrets stored in an enterprise secrets vault.
+
+---
+
+## Slide 7: 90-Day Phased Roadmap
+- **Phase 1 (Days 1–30):** Foundations, API security & First Prototype (**{{ first_prototype_title }}**).
+- **Phase 2 (Days 31–60):** Onboarding Hub & Inbound Lead Triage.
+- **Phase 3 (Days 61–90):** Proposal Drafter & Invoice Reconciliation.
+
+---
+
+## Slide 8: Immediate Next Steps & Leadership Decisions
+- [x] Review and approve Phase 1 roadmap and budget ($**{{ "{:,.0f}".format(phase1_cost) }}**).
+- [x] Designate team review leads for human-in-the-loop approvals.
+- [x] Kick off Day 1 prototype sprint on Monday.

@@ -1,0 +1,18 @@
+flowchart TD
+  subgraph SG1 ["Workflow: Weekly Client Performance Reporting (Paid Media & Strategy)"]
+    weekly_reporting_start(["Start: Weekly Client Performance Reporting Trigger"])
+    wr_01["<b>Step 1: Export Weekly Campaign Data</b><br/>Actor: Junior Analyst | System: Meta & Google Ads<br/>Time: 15 mins | Status:  ✍️ [Manual]"]
+    wr_02["<b>Step 2: Aggregate Data & Calculate Blended KPIs</b><br/>Actor: Junior Analyst | System: Google Sheets<br/>Time: 20 mins | Status:  ✍️ [Manual] ⚠️ [Bottleneck]<br/><i>Bottleneck: Frequent formula breaks and manual cross-sheet copy errors.</i>"]
+    wr_03["<b>Step 3: Draft Executive Narrative Commentary</b><br/>Actor: Senior Consultant | System: Google Docs<br/>Time: 25 mins | Status:  ✍️ [Manual] ⚠️ [Bottleneck]<br/><i>Bottleneck: Repetitive cognitive toil consuming senior consultant billable hours.</i>"]
+    wr_04{"🛡️ Approval Gate: <b>Step 4: Account Director Quality Review</b><br/>Actor: Account Director | System: Google Docs<br/>Time: 10 mins | Status:  ✍️ [Manual]"}
+    wr_05["<b>Step 5: Export PDF & Dispatch to Client</b><br/>Actor: Junior Analyst | System: Gmail / Slack<br/>Time: 5 mins | Status:  ✍️ [Manual]"]
+  end
+  weekly_reporting_start --> wr_01
+  wr_01 --> wr_02
+  wr_02 --> wr_03
+  wr_03 --> wr_04
+  wr_04 --> wr_05
+    weekly_reporting_end(["End: Workflow Complete"])
+  wr_05 --> weekly_reporting_end
+  style wr_02 fill:#fee2e2,stroke:#ef4444,stroke-width:2px,color:#991b1b
+  style wr_03 fill:#fee2e2,stroke:#ef4444,stroke-width:2px,color:#991b1b

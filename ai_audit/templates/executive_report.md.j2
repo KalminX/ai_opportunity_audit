@@ -1,0 +1,301 @@
+# AI Opportunity Audit & Automation Roadmap: Executive Report
+**Client:** {{ project.business_context.company_name }}  
+**Industry:** {{ project.business_context.industry }}  
+**Audit Date:** {{ project.audit_date }}  
+**Lead Consultant:** {{ project.consultant_name }}  
+**Client Executive Contact:** {{ project.client_contact }}  
+
+---
+
+## 1. Executive Summary
+
+This **AI Opportunity Audit and Automation Roadmap** provides an objective, evidence-based assessment of {{ project.business_context.company_name }}'s operational workflows. The objective is to identify high-leverage automation and AI opportunities that alleviate staff burnout, eliminate manual bottlenecks, improve turnaround speed, and unlock capacity for high-margin strategic advisory work.
+
+### Headline Findings & Impact Projections (Expected Scenario)
+
+- **Identified Opportunities:** {{ project.opportunities|length }} distinct automation initiatives assessed across {{ project.workflows|length }} core business workflows.
+- **Current Baseline Workload in Scope:** **{{ portfolio.total_baseline_hours | round(1) }} hours/year** across key administrative and repetitive operational workflows (representing **${{ "{:,.0f}".format(portfolio.total_baseline_cost_usd) }}/year** in loaded internal labor cost).
+- **Projected Net Capacity Released:** **{{ portfolio.total_net_hours_saved | round(1) }} hours/year** freed from repetitive manual tasks for client-facing growth and high-value consulting (valued at **${{ "{:,.0f}".format(portfolio.total_capacity_released_usd) }}/year**).
+- **Direct Hard-Dollar Cash Savings:** **${{ "{:,.0f}".format(portfolio.total_direct_cash_savings_usd) }}/year** (contractor and redundant tool cost reduction).
+- **Combined Gross Annual Value:** **${{ "{:,.0f}".format(portfolio.total_gross_annual_value_usd) }}/year**.
+- **Total Implementation Investment:** **${{ "{:,.0f}".format(portfolio.total_implementation_cost_usd) }}** one-off development and setup.
+- **Estimated Payback Period:** **{{ portfolio.portfolio_payback_months }} months** (3-Year ROI: **{{ portfolio.portfolio_3yr_roi_pct }}%**).
+- **Recommended First Prototype:** **{{ first_prototype_title }}** (Phase 1, Days 1–30).
+
+> **Important Governance Note:** All recommendations are anchored in strict human-in-the-loop safeguards. Highly autonomous, unsupervised client-facing AI actions are explicitly blocked under our hard-stop risk framework.
+
+---
+
+## 2. Business Context and Strategic Goals
+
+### Company Profile
+- **Organization:** {{ project.business_context.company_name }}
+- **Team Size:** {{ project.business_context.size_employees }} full-time staff
+- **Annual Turnover:** ${{ "{:,.0f}".format(project.business_context.annual_revenue_usd) }} USD
+- **Business Overview:** {{ project.business_context.business_overview }}
+
+### Strategic Objectives
+{% for obj in project.business_context.strategic_objectives %}
+{{ loop.index }}. **{{ obj }}**
+{% endfor %}
+
+### Current Technology Stack
+| System / Tool | Category | Role in Operations |
+| :--- | :--- | :--- |
+{% for tech in project.business_context.current_tech_stack %}
+| **{{ tech.name }}** | {{ tech.category }} | {{ tech.purpose }} |
+{% endfor %}
+
+### Data Confidentiality & Governance Standards
+{{ project.business_context.confidentiality_requirements }}
+
+---
+
+## 3. Current-State Findings and Operational Workload Inventory
+
+Through stakeholder interviews and operational process tracing, five primary end-to-end workflows were evaluated.
+
+### Workload Inventory by Process
+| Process Workflow | Department | Frequency / Vol | Manual Mins/Run | Annual Manual Hours | Error Rate |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+{% for wf in project.workflows %}
+| **{{ wf.name }}** | {{ wf.department }} | {{ wf.frequency }} ({{ wf.annual_frequency_count }}/yr) | {{ wf.total_manual_handling_time_minutes() | round(0) }} mins | **{{ wf.total_annual_manual_hours() | round(1) }} hrs** | {{ wf.current_error_rate_pct }}% |
+{% endfor %}
+
+### Key Stakeholder Interview Observations
+{% for interview in project.interviews %}
+#### {{ interview.interviewee_role }} ({{ interview.interviewee_name }} - {{ interview.department }})
+- **Reported Pain Points:**
+{% for pp in interview.reported_pain_points %}
+  - {{ pp }}
+{% endfor %}
+- **Primary Time Sinks:**
+{% for ts in interview.time_sinks_identified %}
+  - {{ ts }}
+{% endfor %}
+- **Representative Quote:** *"{{ interview.key_quotes[0] if interview.key_quotes else 'N/A' }}"*
+- **Team Sentiment towards AI:** `{{ interview.sentiment_towards_ai }}`
+{% endfor %}
+
+---
+
+## 4. Key Process Bottlenecks and Friction Points
+
+The audit distinguished **Measured Findings** (data logs/audits), **Observed Interview Findings** (reported by staff), and **Hypotheses Requiring Validation**.
+
+{% for wf in project.workflows %}
+### Workflow: {{ wf.name }} ({{ wf.department }})
+- **Process Owner:** {{ wf.owner }}
+- **Systems Involved:** {{ wf.systems_involved | join(', ') }}
+- **Identified Bottlenecks & Friction Points:**
+{% for s in wf.steps %}
+{% if s.bottleneck_identified %}
+  - **Step {{ s.order }}: {{ s.title }}** (Actor: `{{ s.actor }}` | Handling Time: `{{ s.handling_time_minutes }} mins`)
+    - *Bottleneck Notes:* {{ s.bottleneck_notes }}
+    - *Evidence Level:* `{{ s.evidence_level }}`
+{% endif %}
+{% endfor %}
+
+```mermaid
+{{ mermaid_maps[wf.process_id] }}
+```
+
+{% endfor %}
+
+---
+
+## 5. Prioritised Opportunity Register
+
+Opportunities have been scored using our multi-criteria decision framework across **Business Value (30%)**, **Data Readiness (20%)**, **Delivery Confidence (20%)**, **Implementation Effort (15% penalty)**, and **Operational Risk (15% penalty)**.
+
+### Prioritised Ranking Table
+| Rank | ID | Opportunity Title | Type | Score | Tier | Delivery Confidence | Human Approval Gate | Status |
+| :---: | :--- | :--- | :--- | :---: | :--- | :---: | :--- | :--- |
+{% for score in ranked_scores %}
+{% set opp = opp_map[score.opportunity_id] %}
+| **#{{ score.rank }}** | `{{ opp.id }}` | **{{ opp.title }}** | `{{ opp.automation_type }}` | **{{ score.final_score }}** | `{{ score.tier }}` | {{ opp.scoring_inputs.delivery_confidence }}/5 | {{ opp.human_in_the_loop }} | {% if score.is_hard_stop_blocked %}🚫 **BLOCKED (Hard Stop)**{% else %}✅ Approved for Roadmap{% endif %} |
+{% endfor %}
+
+### Detailed Opportunity Profiles
+
+{% for score in ranked_scores %}
+{% set opp = opp_map[score.opportunity_id] %}
+#### [{{ opp.id }}] {{ opp.title }}
+- **Status / Tier:** `{{ score.tier }}` (Composite Score: **{{ score.final_score }}/100**)
+- **Workflow Affected:** `{{ opp.workflow_id }}` | **Owner:** {{ opp.responsible_owner }}
+- **Technology Approach:** `{{ opp.automation_type }}`
+- **Why AI vs Rule-Based Automation:** {{ opp.why_ai_or_why_not }}
+- **Problem Statement:** {{ opp.problem_statement }}
+- **Proposed Solution:** {{ opp.proposed_solution }}
+- **Human-in-the-Loop Governance:** `{{ opp.human_in_the_loop }}`
+- **Score Breakdown:**
+  - Business Value: `{{ opp.scoring_inputs.business_value }}/5`
+  - Data Readiness: `{{ opp.scoring_inputs.data_readiness }}/5` (Notes: *{{ opp.data_readiness_notes }}*)
+  - Delivery Confidence: `{{ opp.scoring_inputs.delivery_confidence }}/5`
+  - Implementation Effort: `{{ opp.scoring_inputs.implementation_effort }}/5`
+  - Operational Risk: `{{ opp.scoring_inputs.operational_risk }}/5`
+{% if score.is_hard_stop_blocked %}
+- ⚠️ **Hard-Stop Gate:** **{{ score.hard_stop_reason }}**
+{% endif %}
+- **Scoring Rationale:** {{ score.explanation }}
+- **Dependencies & Integrations:** {{ opp.required_integrations | join(', ') if opp.required_integrations else 'None' }}
+- **Key Assumptions & Limitations:**
+  - *Assumptions:* {{ opp.assumptions | join('; ') }}
+  - *Limitations:* {{ opp.limitations | join('; ') }}
+
+---
+{% endfor %}
+
+## 6. Estimated Business Impact and Scenario Analysis
+
+Financial modeling explicitly distinguishes **released internal capacity** from **direct cash savings**. To account for operational uncertainty, three scenarios are evaluated:
+
+| Metric | Conservative Scenario | Expected Scenario (Baseline) | Optimistic Scenario |
+| :--- | :---: | :---: | :---: |
+| **Annual Labor Hours Saved** | **{{ portfolio_conservative.total_net_hours_saved | round(1) }} hrs** | **{{ portfolio.total_net_hours_saved | round(1) }} hrs** | **{{ portfolio_optimistic.total_net_hours_saved | round(1) }} hrs** |
+| **Capacity Value Released** | ${{ "{:,.0f}".format(portfolio_conservative.total_capacity_released_usd) }}/yr | ${{ "{:,.0f}".format(portfolio.total_capacity_released_usd) }}/yr | ${{ "{:,.0f}".format(portfolio_optimistic.total_capacity_released_usd) }}/yr |
+| **Direct Cash Savings** | ${{ "{:,.0f}".format(portfolio_conservative.total_direct_cash_savings_usd) }}/yr | ${{ "{:,.0f}".format(portfolio.total_direct_cash_savings_usd) }}/yr | ${{ "{:,.0f}".format(portfolio_optimistic.total_direct_cash_savings_usd) }}/yr |
+| **Total Gross Annual Benefit** | **${{ "{:,.0f}".format(portfolio_conservative.total_gross_annual_value_usd) }}/yr** | **${{ "{:,.0f}".format(portfolio.total_gross_annual_value_usd) }}/yr** | **${{ "{:,.0f}".format(portfolio_optimistic.total_gross_annual_value_usd) }}/yr** |
+| **Upfront Implementation Cost** | ${{ "{:,.0f}".format(portfolio_conservative.total_implementation_cost_usd) }} | ${{ "{:,.0f}".format(portfolio.total_implementation_cost_usd) }} | ${{ "{:,.0f}".format(portfolio_optimistic.total_implementation_cost_usd) }} |
+| **Ongoing Annual Costs** | ${{ "{:,.0f}".format(portfolio_conservative.total_annual_recurring_cost_usd) }}/yr | ${{ "{:,.0f}".format(portfolio.total_annual_recurring_cost_usd) }}/yr | ${{ "{:,.0f}".format(portfolio_optimistic.total_annual_recurring_cost_usd) }}/yr |
+| **Net First-Year Benefit** | **${{ "{:,.0f}".format(portfolio_conservative.total_net_first_year_benefit_usd) }}** | **${{ "{:,.0f}".format(portfolio.total_net_first_year_benefit_usd) }}** | **${{ "{:,.0f}".format(portfolio_optimistic.total_net_first_year_benefit_usd) }}** |
+| **Payback Period** | **{{ portfolio_conservative.portfolio_payback_months }} months** | **{{ portfolio.portfolio_payback_months }} months** | **{{ portfolio_optimistic.portfolio_payback_months }} months** |
+| **3-Year ROI** | **{{ portfolio_conservative.portfolio_3yr_roi_pct }}%** | **{{ portfolio.portfolio_3yr_roi_pct }}%** | **{{ portfolio_optimistic.portfolio_3yr_roi_pct }}%** |
+
+### Individual Opportunity Financial Breakdown (Expected Scenario)
+| ID | Opportunity | Role Impacted | Baseline Hrs | Net Hrs Saved | Capacity Val | Direct Cash | Impl Cost | Payback |
+| :--- | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
+{% for fin in financial_results %}
+| `{{ fin.opportunity_id }}` | {{ fin.opportunity_title }} | {{ fin.role_title }} | {{ fin.baseline_annual_hours | round(0) }} | **{{ fin.net_hours_saved_annual | round(0) }}** | ${{ "{:,.0f}".format(fin.capacity_released_value_usd) }} | ${{ "{:,.0f}".format(fin.direct_cash_savings_usd) }} | ${{ "{:,.0f}".format(fin.implementation_cost_usd) }} | {{ fin.payback_period_months }}m |
+{% endfor %}
+
+---
+
+## 7. Recommended Architecture and Tool Choices
+
+To minimize vendor lock-in, recurring licensing overhead, and security exposure, the recommended automation architecture follows a **Modular, API-First Hub & Spoke Pattern**:
+
+1. **Integration & Orchestration Layer:**
+   - Standard Webhook & REST API connectors (e.g. Make / Zapier Enterprise or lightweight Python micro-services).
+   - Event-driven triggers for CRM (HubSpot), Project Management (Asana), and Financials (QuickBooks).
+2. **AI & Intelligence Layer:**
+   - Enterprise Tier LLM APIs (e.g., Anthropic Claude 3.5 Sonnet / OpenAI GPT-4o Enterprise) with **Zero-Data-Retention (ZDR)** agreements.
+   - Structured JSON output parsing with deterministic schema validation (Pydantic / JSON schema).
+3. **Storage & Knowledge Layer:**
+   - Google Drive / Notion / HubSpot synced documentation with scoped metadata tagging.
+   - Centralized Secrets Management via 1Password Secrets / AWS Secrets Manager.
+4. **Human-in-the-Loop Interface:**
+   - Slack Interactive Buttons & Asana Approval Tasks for 1-click human review and sign-off before dispatch.
+
+---
+
+## 8. Security, Privacy, and Operational Risks
+
+> **Assessment Disclaimer:** {{ security_disclaimer }}
+
+### Security & Data Readiness Checklist Summary
+- **Overall Readiness Index:** `{{ security_summary.readiness_pct }}%`
+- **Passed Checks:** `{{ security_summary.pass_count }}/{{ security_summary.total_items }}`
+- **Items Requiring Remediation:** `{{ security_summary.needs_attention_count }}`
+
+| ID | Dimension | Requirement | Status | Current Practice & Action Plan |
+| :--- | :--- | :--- | :---: | :--- |
+{% for item in project.security_checklist %}
+| `{{ item.id }}` | **{{ item.category }}** | {{ item.requirement }} | `{{ item.status }}` | {{ item.notes }} *Remediation:* {{ item.remediation_action }} |
+{% endfor %}
+
+### Operational Risk Register
+| Risk ID | Category | Description | Inherent Risk | Mitigation Strategy | Residual Risk | Owner |
+| :--- | :--- | :--- | :---: | :--- | :---: | :--- |
+{% for r in project.risk_register %}
+| `{{ r.risk_id }}` | **{{ r.category }}** | {{ r.description }} | **{{ r.inherent_risk_level }}** ({{ r.inherent_risk_score }}) | {{ r.mitigation_strategy }} | **{{ r.residual_risk_level }}** ({{ r.residual_risk_score }}) | {{ r.owner }} |
+{% endfor %}
+
+---
+
+## 9. Ninety-Day Implementation Roadmap
+
+The implementation is structured into three consecutive 30-day sprints. Foundational security and credential isolation are completed before deploying AI integrations.
+
+```mermaid
+flowchart LR
+  subgraph P1 ["Phase 1: Days 1-30"]
+    R1["Security Setup & Vault"] --> R2["First Prototype: {{ first_prototype_title }}"]
+    R2 --> G1{"Gate 1 Signoff"}
+  end
+  subgraph P2 ["Phase 2: Days 31-60"]
+    G1 --> R3["Onboarding Hub & Lead Triage"]
+    R3 --> G2{"Gate 2 Signoff"}
+  end
+  subgraph P3 ["Phase 3: Days 61-90"]
+    G2 --> R4["Proposal Drafter & Invoice Matcher"]
+    R4 --> G3(["Full Rollout & Review"])
+  end
+```
+
+{% for phase_name, initiatives in roadmap_phases.items() %}
+### {{ phase_name }}
+
+{% for init in initiatives %}
+#### 🔹 {{ init.title }} {% if init.is_first_prototype %}**(⭐ Recommended First Prototype)**{% endif %}
+- **Objective:** {{ init.objective }}
+- **Business Justification:** {{ init.business_justification }}
+- **Responsible Role:** `{{ init.responsible_role }}` | **Effort:** `{{ init.estimated_effort_weeks }} weeks` | **Cost:** `${{ "{:,.0f}".format(init.estimated_cost_usd) }}`
+- **Key Deliverables:**
+{% for deliv in init.deliverables %}
+  - {{ deliv }}
+{% endfor %}
+- **Dependencies & Baselines:**
+  - *Dependencies:* {{ init.dependencies | join(', ') }}
+  - *Baseline Requirements:* {{ init.baseline_requirements | join(', ') }}
+- **Success Metrics:**
+{% for sm in init.success_metrics %}
+  - {{ sm }}
+{% endfor %}
+- **Acceptance Criteria & Go/No-Go Gate:**
+  - *Acceptance:* {{ init.acceptance_criteria | join('; ') }}
+  - *Go/No-Go Decision Gate:* **{{ init.go_no_go_gate }}**
+
+{% endfor %}
+{% endfor %}
+
+---
+
+## 10. Recommended First Prototype
+
+### Selection: **{{ first_prototype_title }}**
+- **Why this was selected:**
+  {{ first_prototype_rationale }}
+- **Key Success Factors for Prototype:**
+  1. Low technical friction (structured Looker Studio / Ads API metrics + deterministic aggregation).
+  2. Zero external client exposure during initial testing (internal consultant review before dispatch).
+  3. Immediate, measurable weekly relief for senior consultants (12+ hours saved weekly across the strategy team).
+
+---
+
+## 11. Decisions Required from Leadership
+
+To proceed with Phase 1 deployment, leadership sign-off is required on the following items:
+
+1. **Security & Data Handling Mandate:** Approval to enforce Enterprise Zero-Data-Retention API terms with foundation model providers.
+2. **Phase 1 Budget Authorization:** Approval of the initial ${{ "{:,.0f}".format(phase1_cost) }} allocation for foundational secrets management and the reporting prototype.
+3. **Role & Governance Champions:** Designation of the Operations Lead and Client Services Lead as primary reviewers for human-in-the-loop workflows.
+4. **Hard-Stop Policy Endorsement:** Reaffirmation that autonomous campaign publishing without human review remains strictly prohibited.
+
+---
+
+## 12. Evidence Gaps and Immediate Next Steps
+
+### Evidence Gaps Pending Validation
+- [ ] **Proposal Customization Variance:** Validate exact consultant hours spent researching past pitches vs writing new copy (currently estimated at 18-25 hrs/proposal).
+- [ ] **Vendor Invoice OCR Accuracy:** Benchmark PDF extraction accuracy across diverse subcontractor invoice layouts.
+- [ ] **CRM Lead Response Latency:** Pull exact historical timestamps from HubSpot to benchmark lead qualification turnaround.
+
+### Immediate Action Plan (Next 14 Days)
+1. Execute Enterprise AI vendor agreements with Zero-Data-Retention addendums.
+2. Provision dedicated API vault credentials and configure scoped service accounts.
+3. Kick off Phase 1 prototype development for **{{ first_prototype_title }}**.
+4. Conduct Week 2 check-in on Looker Studio / Google Sheets schema consistency.
+
+---
+*Report generated by the AI Opportunity Audit and Automation Roadmap Toolkit.*

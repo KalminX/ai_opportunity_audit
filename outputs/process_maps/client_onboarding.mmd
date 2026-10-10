@@ -1,0 +1,18 @@
+flowchart TD
+  subgraph SG1 ["Workflow: New Client Onboarding & Setup (Client Services & Ops)"]
+    client_onboarding_start(["Start: New Client Onboarding & Setup Trigger"])
+    onb_01["<b>Step 1: Deal Closed-Won Trigger</b><br/>Actor: Sales Director | System: HubSpot CRM<br/>Time: 10 mins | Status:  ✍️ [Manual]"]
+    onb_02["<b>Step 2: Send Intake Forms & Access Checklist</b><br/>Actor: Ops Coordinator | System: Gmail / Google Forms<br/>Time: 30 mins | Status:  ✍️ [Manual]"]
+    onb_03["<b>Step 3: Chase Missing Client Assets & Logins</b><br/>Actor: Ops Coordinator | System: Gmail / Slack<br/>Time: 180 mins | Status:  ✍️ [Manual] ⚠️ [Bottleneck]<br/><i>Bottleneck: Major bottleneck: 5-8 manual emails over 10 days chasing client permissions.</i>"]
+    onb_04["<b>Step 4: Manual Workspace & Folder Provisioning</b><br/>Actor: Ops Coordinator | System: Google Drive & Asana<br/>Time: 120 mins | Status:  ✍️ [Manual] ⚠️ [Bottleneck]<br/><i>Bottleneck: Repetitive administrative task prone to missing subfolders and permission leaks.</i>"]
+    onb_05["<b>Step 5: Assemble Customized Kickoff Deck</b><br/>Actor: Senior Consultant | System: Google Slides<br/>Time: 140 mins | Status:  ✍️ [Manual]"]
+  end
+  client_onboarding_start --> onb_01
+  onb_01 --> onb_02
+  onb_02 --> onb_03
+  onb_03 --> onb_04
+  onb_04 --> onb_05
+    client_onboarding_end(["End: Workflow Complete"])
+  onb_05 --> client_onboarding_end
+  style onb_03 fill:#fee2e2,stroke:#ef4444,stroke-width:2px,color:#991b1b
+  style onb_04 fill:#fee2e2,stroke:#ef4444,stroke-width:2px,color:#991b1b

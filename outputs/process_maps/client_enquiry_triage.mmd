@@ -1,0 +1,13 @@
+flowchart TD
+  subgraph SG1 ["Workflow: Inbound Client Enquiry Qualification & Triage (Sales & Marketing)"]
+    client_enquiry_triage_start(["Start: Inbound Client Enquiry Qualification & Triage Trigger"])
+    tri_01["<b>Step 1: Receive Inbound Web Lead</b><br/>Actor: Junior SDR | System: HubSpot CRM<br/>Time: 5 mins | Status:  ✍️ [Manual]"]
+    tri_02["<b>Step 2: Manual Company & Intent Research</b><br/>Actor: Junior SDR | System: LinkedIn / Google / BuiltWith<br/>Time: 20 mins | Status:  ✍️ [Manual] ⚠️ [Bottleneck]<br/><i>Bottleneck: Manual browsing across 4 tools introduces 2-4 hour latency in lead response.</i>"]
+    tri_03["<b>Step 3: Route Lead & Draft Personal Response</b><br/>Actor: Junior SDR | System: Gmail / Slack<br/>Time: 10 mins | Status:  ✍️ [Manual]"]
+  end
+  client_enquiry_triage_start --> tri_01
+  tri_01 --> tri_02
+  tri_02 --> tri_03
+    client_enquiry_triage_end(["End: Workflow Complete"])
+  tri_03 --> client_enquiry_triage_end
+  style tri_02 fill:#fee2e2,stroke:#ef4444,stroke-width:2px,color:#991b1b

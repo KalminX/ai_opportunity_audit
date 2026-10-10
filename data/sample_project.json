@@ -1,0 +1,1524 @@
+{
+  "project_id": "APEX-AUDIT-2026",
+  "project_name": "Apex Growth Partners AI Opportunity Audit & Automation Roadmap",
+  "audit_date": "2026-10-10",
+  "consultant_name": "Strategic AI & Automation Advisory Group",
+  "client_contact": "Marcus Vance (Founder & CEO) & Elena Rostova (Head of Client Services)",
+  "business_context": {
+    "company_name": "Apex Growth Partners",
+    "industry": "B2B Growth Advisory & Performance Marketing",
+    "size_employees": 25,
+    "annual_revenue_usd": 4800000.0,
+    "business_overview": "Apex Growth Partners is a boutique growth consultancy managing digital strategy, paid acquisition, and content for 30+ mid-market B2B technology and professional services clients. The firm charges monthly retainers ($8k-$20k/mo) and is experiencing margin compression due to heavy administrative friction in client reporting, onboarding, and customized pitch preparation.",
+    "strategic_objectives": [
+      "Scale client roster from 30 to 50 active retainers without linearly increasing headcount.",
+      "Eliminate analyst and senior consultant burnout caused by repetitive weekly reporting.",
+      "Reduce new client onboarding turnaround from 14 calendar days to under 4 days.",
+      "Maintain strict client data confidentiality and uphold enterprise SOC-2 / GDPR standards."
+    ],
+    "team_structure": {
+      "Executive Leadership": [
+        "Marcus Vance (Founder & CEO)",
+        "Elena Rostova (Head of Client Services)"
+      ],
+      "Consulting & Media": [
+        "4 Account Directors",
+        "8 Senior Paid Media & Growth Consultants",
+        "6 Junior Analysts & Specialists"
+      ],
+      "Operations & Finance": [
+        "Sarah Jenkins (Ops & Finance Lead)",
+        "3 Operations Coordinators"
+      ]
+    },
+    "current_tech_stack": [
+      {
+        "name": "HubSpot CRM",
+        "category": "CRM & Sales",
+        "purpose": "Lead pipeline and client contact management."
+      },
+      {
+        "name": "Google Workspace",
+        "category": "Productivity & Storage",
+        "purpose": "Docs, Sheets, Drive, and Gmail collaboration."
+      },
+      {
+        "name": "Asana",
+        "category": "Project Management",
+        "purpose": "Client task tracking, sprint management, and deliverables."
+      },
+      {
+        "name": "Slack",
+        "category": "Internal & Client Comms",
+        "purpose": "Real-time communication and channel alerts."
+      },
+      {
+        "name": "QuickBooks Online",
+        "category": "Finance & Invoicing",
+        "purpose": "Client billing, contractor expense tracking, and accounting."
+      },
+      {
+        "name": "Looker Studio",
+        "category": "BI & Dashboards",
+        "purpose": "Client performance reporting and campaign visualization."
+      },
+      {
+        "name": "Meta & Google Ads",
+        "category": "Advertising Platforms",
+        "purpose": "Paid campaign execution and attribution tracking."
+      }
+    ],
+    "confidentiality_requirements": "Mandatory Zero Data Retention (ZDR) agreements with third-party LLM providers. Strict prohibition against submitting client financial records, customer PII, or unreleased marketing copy to public/consumer AI tools. All client-facing deliverables must undergo human review."
+  },
+  "interviews": [
+    {
+      "interviewee_role": "Founder & CEO",
+      "interviewee_name": "Marcus Vance",
+      "department": "Executive Leadership",
+      "key_quotes": [
+        "Our senior strategists spend Friday afternoons copy-pasting numbers from Meta Ads into Looker Studio and writing formulaic commentary instead of strategizing with clients.",
+        "We need AI to amplify our consultants, not replace our human judgment."
+      ],
+      "reported_pain_points": [
+        "High consultant burnout and unbillable administrative drag.",
+        "Slow proposal turnaround causes lost momentum on high-value inbound leads.",
+        "Scaling headcount linearly with client growth is destroying our gross margins."
+      ],
+      "time_sinks_identified": [
+        "Overseeing manual reporting quality checks.",
+        "Writing custom pitch decks from past unindexed proposals."
+      ],
+      "sentiment_towards_ai": "Strongly Supportive with Strict Governance"
+    },
+    {
+      "interviewee_role": "Head of Client Services",
+      "interviewee_name": "Elena Rostova",
+      "department": "Client Services",
+      "key_quotes": [
+        "Every new client onboarding feels like reinventing the wheel. We send Google Docs questionnaires, chase access permissions for 10 days, and create folders manually."
+      ],
+      "reported_pain_points": [
+        "Client onboarding delays damage first-impression retention scores.",
+        "Inbound lead qualification is chaotic; juniors miss critical intent signals."
+      ],
+      "time_sinks_identified": [
+        "Manual client asset reminders and chasing access credentials.",
+        "Reviewing analyst weekly reports for copy-paste errors."
+      ],
+      "sentiment_towards_ai": "Enthusiastic for Workflow Assistants"
+    },
+    {
+      "interviewee_role": "Senior Paid Media Consultant",
+      "interviewee_name": "David Chen",
+      "department": "Paid Media",
+      "key_quotes": [
+        "I spend 14 hours every single week aggregating Google Ads, LinkedIn, and Meta data into sheets, calculating CAC/ROAS variations, and typing the same executive summary format."
+      ],
+      "reported_pain_points": [
+        "Repetitive weekly reporting leaves zero time for proactive campaign experimentation.",
+        "High risk of human formula error when calculating multi-channel blended ROAS."
+      ],
+      "time_sinks_identified": [
+        "Manual weekly performance reporting (12-16 hrs/wk per consultant).",
+        "Drafting routine client email updates."
+      ],
+      "sentiment_towards_ai": "Desperately Wants Reporting Automation"
+    },
+    {
+      "interviewee_role": "Operations & Finance Lead",
+      "interviewee_name": "Sarah Jenkins",
+      "department": "Operations & Finance",
+      "key_quotes": [
+        "Month-end is a nightmare matching 45 contractor timesheets and Google Drive deliverables to QuickBooks invoices."
+      ],
+      "reported_pain_points": [
+        "Manual invoice 3-way matching takes 35+ hours every single month.",
+        "Scattered contractor rate cards and inconsistent milestone logging."
+      ],
+      "time_sinks_identified": [
+        "Contractor invoice verification and reconciliation.",
+        "Creating Asana boards and Drive folder structures for new accounts."
+      ],
+      "sentiment_towards_ai": "Supportive if Data Privacy is Guaranteed"
+    }
+  ],
+  "workflows": [
+    {
+      "process_id": "weekly_reporting",
+      "name": "Weekly Client Performance Reporting",
+      "owner": "David Chen (Senior Consultant)",
+      "department": "Paid Media & Strategy",
+      "frequency": "Weekly per Client",
+      "annual_frequency_count": 1456.0,
+      "inputs": [
+        "Meta Ads Manager API",
+        "Google Ads API",
+        "Looker Studio Template",
+        "Prior Week Commentary"
+      ],
+      "outputs": [
+        "Client Weekly PDF Report",
+        "Slack Summary Message",
+        "Internal Performance Log"
+      ],
+      "systems_involved": [
+        "Looker Studio",
+        "Google Sheets",
+        "Meta Ads",
+        "Google Ads",
+        "Slack"
+      ],
+      "pain_points": [
+        "Manual copying and pasting of weekly metrics across 3 ad networks.",
+        "Consultants spending 75 minutes per report drafting formulaic commentary.",
+        "12% error rate in manual blended ROAS calculations."
+      ],
+      "current_error_rate_pct": 12.0,
+      "steps": [
+        {
+          "step_id": "wr_01",
+          "order": 1,
+          "title": "Export Weekly Campaign Data",
+          "actor": "Junior Analyst",
+          "system": "Meta & Google Ads",
+          "description": "Download weekly CSV exports for spend, impressions, clicks, conversions, and revenue.",
+          "is_manual": true,
+          "is_decision": false,
+          "is_approval": false,
+          "handoff_to": null,
+          "next_step_ids": [],
+          "handling_time_minutes": 15.0,
+          "bottleneck_identified": false,
+          "bottleneck_notes": "",
+          "evidence_level": "MEASURED"
+        },
+        {
+          "step_id": "wr_02",
+          "order": 2,
+          "title": "Aggregate Data & Calculate Blended KPIs",
+          "actor": "Junior Analyst",
+          "system": "Google Sheets",
+          "description": "Paste CSVs into master calculation tab, verify formulas, and compute blended CAC and ROAS.",
+          "is_manual": true,
+          "is_decision": false,
+          "is_approval": false,
+          "handoff_to": null,
+          "next_step_ids": [],
+          "handling_time_minutes": 20.0,
+          "bottleneck_identified": true,
+          "bottleneck_notes": "Frequent formula breaks and manual cross-sheet copy errors.",
+          "evidence_level": "MEASURED"
+        },
+        {
+          "step_id": "wr_03",
+          "order": 3,
+          "title": "Draft Executive Narrative Commentary",
+          "actor": "Senior Consultant",
+          "system": "Google Docs",
+          "description": "Interpret variance trends, explain anomalies, and write 3-paragraph executive narrative.",
+          "is_manual": true,
+          "is_decision": false,
+          "is_approval": false,
+          "handoff_to": null,
+          "next_step_ids": [],
+          "handling_time_minutes": 25.0,
+          "bottleneck_identified": true,
+          "bottleneck_notes": "Repetitive cognitive toil consuming senior consultant billable hours.",
+          "evidence_level": "OBSERVED_INTERVIEW"
+        },
+        {
+          "step_id": "wr_04",
+          "order": 4,
+          "title": "Account Director Quality Review",
+          "actor": "Account Director",
+          "system": "Google Docs",
+          "description": "Review narrative commentary, check numbers, and approve for dispatch.",
+          "is_manual": true,
+          "is_decision": false,
+          "is_approval": true,
+          "handoff_to": null,
+          "next_step_ids": [],
+          "handling_time_minutes": 10.0,
+          "bottleneck_identified": false,
+          "bottleneck_notes": "",
+          "evidence_level": "OBSERVED_INTERVIEW"
+        },
+        {
+          "step_id": "wr_05",
+          "order": 5,
+          "title": "Export PDF & Dispatch to Client",
+          "actor": "Junior Analyst",
+          "system": "Gmail / Slack",
+          "description": "Generate PDF from Looker Studio, compose email/Slack message, and send to client team.",
+          "is_manual": true,
+          "is_decision": false,
+          "is_approval": false,
+          "handoff_to": null,
+          "next_step_ids": [],
+          "handling_time_minutes": 5.0,
+          "bottleneck_identified": false,
+          "bottleneck_notes": "",
+          "evidence_level": "MEASURED"
+        }
+      ]
+    },
+    {
+      "process_id": "client_onboarding",
+      "name": "New Client Onboarding & Setup",
+      "owner": "Elena Rostova (Head of Client Services)",
+      "department": "Client Services & Ops",
+      "frequency": "Per New Client",
+      "annual_frequency_count": 36.0,
+      "inputs": [
+        "Signed Service Agreement",
+        "Client Intake Questionnaire",
+        "Access Permissions List"
+      ],
+      "outputs": [
+        "Provisioned Asana Project",
+        "Google Drive Folder Tree",
+        "Slack Shared Channel",
+        "Kickoff Deck"
+      ],
+      "systems_involved": [
+        "HubSpot CRM",
+        "Google Drive",
+        "Asana",
+        "Slack",
+        "1Password"
+      ],
+      "pain_points": [
+        "Average onboarding cycle takes 14 calendar days due to scattered questionnaires and manual access chasing.",
+        "Operations staff spend 8 hours per client setting up identical folder and project structures."
+      ],
+      "current_error_rate_pct": 18.0,
+      "steps": [
+        {
+          "step_id": "onb_01",
+          "order": 1,
+          "title": "Deal Closed-Won Trigger",
+          "actor": "Sales Director",
+          "system": "HubSpot CRM",
+          "description": "Move deal to Closed-Won and notify Ops channel via Slack.",
+          "is_manual": true,
+          "is_decision": false,
+          "is_approval": false,
+          "handoff_to": null,
+          "next_step_ids": [],
+          "handling_time_minutes": 10.0,
+          "bottleneck_identified": false,
+          "bottleneck_notes": "",
+          "evidence_level": "MEASURED"
+        },
+        {
+          "step_id": "onb_02",
+          "order": 2,
+          "title": "Send Intake Forms & Access Checklist",
+          "actor": "Ops Coordinator",
+          "system": "Gmail / Google Forms",
+          "description": "Email intake questionnaire and list of required ad account access permissions.",
+          "is_manual": true,
+          "is_decision": false,
+          "is_approval": false,
+          "handoff_to": null,
+          "next_step_ids": [],
+          "handling_time_minutes": 30.0,
+          "bottleneck_identified": false,
+          "bottleneck_notes": "",
+          "evidence_level": "OBSERVED_INTERVIEW"
+        },
+        {
+          "step_id": "onb_03",
+          "order": 3,
+          "title": "Chase Missing Client Assets & Logins",
+          "actor": "Ops Coordinator",
+          "system": "Gmail / Slack",
+          "description": "Manual follow-up emails for missing brand assets, tracking pixels, and Business Manager access.",
+          "is_manual": true,
+          "is_decision": false,
+          "is_approval": false,
+          "handoff_to": null,
+          "next_step_ids": [],
+          "handling_time_minutes": 180.0,
+          "bottleneck_identified": true,
+          "bottleneck_notes": "Major bottleneck: 5-8 manual emails over 10 days chasing client permissions.",
+          "evidence_level": "OBSERVED_INTERVIEW"
+        },
+        {
+          "step_id": "onb_04",
+          "order": 4,
+          "title": "Manual Workspace & Folder Provisioning",
+          "actor": "Ops Coordinator",
+          "system": "Google Drive & Asana",
+          "description": "Manually create Google Drive folder structure, copy SOP templates, and configure Asana boards.",
+          "is_manual": true,
+          "is_decision": false,
+          "is_approval": false,
+          "handoff_to": null,
+          "next_step_ids": [],
+          "handling_time_minutes": 120.0,
+          "bottleneck_identified": true,
+          "bottleneck_notes": "Repetitive administrative task prone to missing subfolders and permission leaks.",
+          "evidence_level": "MEASURED"
+        },
+        {
+          "step_id": "onb_05",
+          "order": 5,
+          "title": "Assemble Customized Kickoff Deck",
+          "actor": "Senior Consultant",
+          "system": "Google Slides",
+          "description": "Populate client kickoff deck with intake responses, competitor analysis, and 30-day plan.",
+          "is_manual": true,
+          "is_decision": false,
+          "is_approval": false,
+          "handoff_to": null,
+          "next_step_ids": [],
+          "handling_time_minutes": 140.0,
+          "bottleneck_identified": false,
+          "bottleneck_notes": "",
+          "evidence_level": "OBSERVED_INTERVIEW"
+        }
+      ]
+    },
+    {
+      "process_id": "client_enquiry_triage",
+      "name": "Inbound Client Enquiry Qualification & Triage",
+      "owner": "Marcus Vance (CEO)",
+      "department": "Sales & Marketing",
+      "frequency": "Per Inbound Lead",
+      "annual_frequency_count": 350.0,
+      "inputs": [
+        "Website Form Submission",
+        "Referral Email",
+        "LinkedIn Message"
+      ],
+      "outputs": [
+        "Enriched HubSpot Lead Record",
+        "Slack Director Alert",
+        "Calendar Booking Link"
+      ],
+      "systems_involved": [
+        "HubSpot CRM",
+        "Clearbit / Apollo",
+        "Slack",
+        "Calendly"
+      ],
+      "pain_points": [
+        "2-4 hour delay in initial response; junior reps manually research website, LinkedIn, and estimated budget.",
+        "8% of leads misrouted to wrong practice lead."
+      ],
+      "current_error_rate_pct": 8.0,
+      "steps": [
+        {
+          "step_id": "tri_01",
+          "order": 1,
+          "title": "Receive Inbound Web Lead",
+          "actor": "Junior SDR",
+          "system": "HubSpot CRM",
+          "description": "Read form submission notification in email or HubSpot inbox.",
+          "is_manual": true,
+          "is_decision": false,
+          "is_approval": false,
+          "handoff_to": null,
+          "next_step_ids": [],
+          "handling_time_minutes": 5.0,
+          "bottleneck_identified": false,
+          "bottleneck_notes": "",
+          "evidence_level": "MEASURED"
+        },
+        {
+          "step_id": "tri_02",
+          "order": 2,
+          "title": "Manual Company & Intent Research",
+          "actor": "Junior SDR",
+          "system": "LinkedIn / Google / BuiltWith",
+          "description": "Check company size, tech stack, funding, and verify if lead fits Ideal Customer Profile (ICP).",
+          "is_manual": true,
+          "is_decision": false,
+          "is_approval": false,
+          "handoff_to": null,
+          "next_step_ids": [],
+          "handling_time_minutes": 20.0,
+          "bottleneck_identified": true,
+          "bottleneck_notes": "Manual browsing across 4 tools introduces 2-4 hour latency in lead response.",
+          "evidence_level": "MEASURED"
+        },
+        {
+          "step_id": "tri_03",
+          "order": 3,
+          "title": "Route Lead & Draft Personal Response",
+          "actor": "Junior SDR",
+          "system": "Gmail / Slack",
+          "description": "Determine appropriate Account Director and draft personalized outreach email.",
+          "is_manual": true,
+          "is_decision": false,
+          "is_approval": false,
+          "handoff_to": null,
+          "next_step_ids": [],
+          "handling_time_minutes": 10.0,
+          "bottleneck_identified": false,
+          "bottleneck_notes": "",
+          "evidence_level": "OBSERVED_INTERVIEW"
+        }
+      ]
+    },
+    {
+      "process_id": "proposal_preparation",
+      "name": "Client Proposal & Pitch Preparation",
+      "owner": "Elena Rostova (Head of Client Services)",
+      "department": "Strategy & Sales",
+      "frequency": "Per Proposal Pitch",
+      "annual_frequency_count": 60.0,
+      "inputs": [
+        "Discovery Call Notes",
+        "Client Audit Data",
+        "Historical Case Study Library"
+      ],
+      "outputs": [
+        "Customized Proposal Deck (Google Slides)",
+        "Fee & Scope Spreadsheet",
+        "Client Contract Draft"
+      ],
+      "systems_involved": [
+        "Google Docs",
+        "Google Slides",
+        "Google Sheets",
+        "HubSpot",
+        "PandaDoc"
+      ],
+      "pain_points": [
+        "Takes 20 hours of senior consultant time per proposal.",
+        "Difficult to find relevant historical case studies and benchmark metrics across 100+ past pitch decks.",
+        "15% error rate in scope and fee tables due to copy-paste artifacts."
+      ],
+      "current_error_rate_pct": 15.0,
+      "steps": [
+        {
+          "step_id": "prop_01",
+          "order": 1,
+          "title": "Review Discovery Notes & Scope",
+          "actor": "Account Director",
+          "system": "HubSpot / Google Docs",
+          "description": "Review recorded discovery notes and extract core client goals and constraints.",
+          "is_manual": true,
+          "is_decision": false,
+          "is_approval": false,
+          "handoff_to": null,
+          "next_step_ids": [],
+          "handling_time_minutes": 90.0,
+          "bottleneck_identified": false,
+          "bottleneck_notes": "",
+          "evidence_level": "OBSERVED_INTERVIEW"
+        },
+        {
+          "step_id": "prop_02",
+          "order": 2,
+          "title": "Search Historical Case Studies & Proof Points",
+          "actor": "Senior Consultant",
+          "system": "Google Drive",
+          "description": "Manually search past pitch decks for matching industry benchmarks and case results.",
+          "is_manual": true,
+          "is_decision": false,
+          "is_approval": false,
+          "handoff_to": null,
+          "next_step_ids": [],
+          "handling_time_minutes": 240.0,
+          "bottleneck_identified": true,
+          "bottleneck_notes": "Unindexed Google Drive makes finding specific past ROAS benchmarks very slow.",
+          "evidence_level": "OBSERVED_INTERVIEW"
+        },
+        {
+          "step_id": "prop_03",
+          "order": 3,
+          "title": "Draft Custom Strategy & Deliverable Slides",
+          "actor": "Senior Consultant",
+          "system": "Google Slides",
+          "description": "Write tailored 90-day strategy narrative and deliverable roadmap slides.",
+          "is_manual": true,
+          "is_decision": false,
+          "is_approval": false,
+          "handoff_to": null,
+          "next_step_ids": [],
+          "handling_time_minutes": 480.0,
+          "bottleneck_identified": true,
+          "bottleneck_notes": "Extensive repetitive drafting of standard strategy frameworks.",
+          "evidence_level": "OBSERVED_INTERVIEW"
+        },
+        {
+          "step_id": "prop_04",
+          "order": 4,
+          "title": "Executive Review & Pricing Signoff",
+          "actor": "CEO / Founder",
+          "system": "Google Slides & Sheets",
+          "description": "Review final deck, validate pricing model, and approve for client presentation.",
+          "is_manual": true,
+          "is_decision": false,
+          "is_approval": true,
+          "handoff_to": null,
+          "next_step_ids": [],
+          "handling_time_minutes": 60.0,
+          "bottleneck_identified": false,
+          "bottleneck_notes": "",
+          "evidence_level": "MEASURED"
+        }
+      ]
+    },
+    {
+      "process_id": "invoice_processing",
+      "name": "Contractor & Vendor Invoice Reconciliation",
+      "owner": "Sarah Jenkins (Ops & Finance Lead)",
+      "department": "Operations & Finance",
+      "frequency": "Monthly Batch",
+      "annual_frequency_count": 540.0,
+      "inputs": [
+        "Contractor PDF Invoices",
+        "Asana Completed Tasks",
+        "Approved Rate Card Sheets"
+      ],
+      "outputs": [
+        "QuickBooks Bill Entries",
+        "Scheduled Bill Payments",
+        "Cost Allocation Report"
+      ],
+      "systems_involved": [
+        "QuickBooks Online",
+        "Asana",
+        "Gmail",
+        "Google Drive"
+      ],
+      "pain_points": [
+        "Matching 45 monthly PDF invoices against Asana task completions takes 35+ hours/month.",
+        "10% discrepancy rate requiring email back-and-forth on billed hours vs agreed caps."
+      ],
+      "current_error_rate_pct": 10.0,
+      "steps": [
+        {
+          "step_id": "inv_01",
+          "order": 1,
+          "title": "Extract PDF Invoice Line Items",
+          "actor": "Finance Coordinator",
+          "system": "Gmail / PDF Reader",
+          "description": "Open email attachments, extract hours billed, rates, and milestone descriptions.",
+          "is_manual": true,
+          "is_decision": false,
+          "is_approval": false,
+          "handoff_to": null,
+          "next_step_ids": [],
+          "handling_time_minutes": 15.0,
+          "bottleneck_identified": false,
+          "bottleneck_notes": "",
+          "evidence_level": "MEASURED"
+        },
+        {
+          "step_id": "inv_02",
+          "order": 2,
+          "title": "Verify Against Asana Milestones & Rate Caps",
+          "actor": "Finance Coordinator",
+          "system": "Asana & Google Sheets",
+          "description": "Cross-reference contractor hours against closed Asana deliverables and master rate contracts.",
+          "is_manual": true,
+          "is_decision": false,
+          "is_approval": false,
+          "handoff_to": null,
+          "next_step_ids": [],
+          "handling_time_minutes": 20.0,
+          "bottleneck_identified": true,
+          "bottleneck_notes": "Tedious manual cross-referencing of Asana task IDs and contractor spreadsheets.",
+          "evidence_level": "MEASURED"
+        },
+        {
+          "step_id": "inv_03",
+          "order": 3,
+          "title": "Create Bill in QuickBooks & Schedule Payment",
+          "actor": "Ops & Finance Lead",
+          "system": "QuickBooks Online",
+          "description": "Enter approved bill details into accounting system with appropriate client cost codes.",
+          "is_manual": true,
+          "is_decision": false,
+          "is_approval": true,
+          "handoff_to": null,
+          "next_step_ids": [],
+          "handling_time_minutes": 10.0,
+          "bottleneck_identified": false,
+          "bottleneck_notes": "",
+          "evidence_level": "MEASURED"
+        }
+      ]
+    }
+  ],
+  "opportunities": [
+    {
+      "id": "OPP-01",
+      "title": "Automated Cross-Channel Performance Report Generator & Executive Summary Draft",
+      "description": "Automate weekly ad platform data aggregation via APIs into Looker Studio, and use an LLM assistant to draft first-pass executive commentary highlighting key weekly variances for consultant review.",
+      "workflow_id": "weekly_reporting",
+      "problem_statement": "Consultants spend 14+ hours every week manually copying metrics across 3 ad platforms and typing formulaic commentary, causing high burnout and a 12% calculation error rate.",
+      "proposed_solution": "API-based data ingestion pipeline combined with a prompt-engineered LLM drafter that compares current week vs prior week KPIs, flags key drivers, and pre-populates the commentary block for consultant review and 1-click signoff.",
+      "automation_type": "HYBRID",
+      "why_ai_or_why_not": "Rule-based automation handles deterministic API metric pulls and variance math; LLM is used strictly to draft structured natural language commentary from structured KPI deltas.",
+      "human_in_the_loop": "MANDATORY_REVIEW",
+      "responsible_owner": "David Chen (Senior Consultant)",
+      "data_readiness_notes": "High readiness: Google Ads, Meta Ads, and Looker Studio schemas are well-structured and accessible via official APIs.",
+      "dependencies": [
+        "Looker Studio data connectors",
+        "Enterprise LLM API endpoint with Zero-Data-Retention"
+      ],
+      "required_integrations": [
+        "Meta Marketing API",
+        "Google Ads API",
+        "Looker Studio",
+        "Slack"
+      ],
+      "evidence_level": "MEASURED",
+      "assumptions": [
+        "Consultants require an average of 10 minutes to review and polish generated drafts rather than 75 minutes drafting from scratch.",
+        "API connectors remain stable with standard rate limits."
+      ],
+      "limitations": [
+        "AI does not interpret external macro events (e.g. client website crash) unless manually flagged in prompt context."
+      ],
+      "scoring_inputs": {
+        "business_value": 4.8,
+        "data_readiness": 4.5,
+        "delivery_confidence": 4.5,
+        "implementation_effort": 2.5,
+        "operational_risk": 1.5,
+        "hard_stop_triggered": false,
+        "hard_stop_reason": null
+      },
+      "financial_inputs": {
+        "role_title": "Senior Consultant / Strategist",
+        "hourly_rate_usd": 75.0,
+        "annual_volume": 1456.0,
+        "handling_time_hours": 1.25,
+        "automation_coverage_pct": 0.75,
+        "human_review_overhead_pct": 0.15,
+        "implementation_cost_usd": 7500.0,
+        "annual_recurring_cost_usd": 1800.0,
+        "direct_cash_savings_usd": 0.0,
+        "notes": "Massive consultant capacity unlock across 1,456 weekly reports."
+      }
+    },
+    {
+      "id": "OPP-02",
+      "title": "Client Onboarding Orchestrator & Automated Asset Collection Hub",
+      "description": "Trigger automated Asana board provisioning, Google Drive folder tree generation, and automated client asset reminder cadence upon deal Closed-Won status in HubSpot.",
+      "workflow_id": "client_onboarding",
+      "problem_statement": "Manual folder creation, template duplication, and chasing client logins over email takes 8+ hours of Ops time per client and delays kickoff by 14 days.",
+      "proposed_solution": "Webhook-driven integration between HubSpot, Asana, and Google Drive that auto-provisions standardized workspaces instantly and sends automated WhatsApp/Email reminders for missing access tokens.",
+      "automation_type": "RULE_BASED",
+      "why_ai_or_why_not": "AI is unnecessary here. This is a deterministic orchestration workflow best solved with webhook automations, standardized folder templates, and scheduled reminder triggers.",
+      "human_in_the_loop": "EXCEPTION_ONLY",
+      "responsible_owner": "Elena Rostova (Head of Client Services)",
+      "data_readiness_notes": "High readiness: Standard folder templates and Asana board blueprints already exist in Google Drive.",
+      "dependencies": [
+        "HubSpot Webhooks",
+        "Asana API",
+        "Google Workspace Admin API"
+      ],
+      "required_integrations": [
+        "HubSpot CRM",
+        "Asana",
+        "Google Drive",
+        "Slack"
+      ],
+      "evidence_level": "MEASURED",
+      "assumptions": [
+        "Clients respond faster to an interactive checklist portal than scattered email threads.",
+        "Reduces administrative setup from 8 hours to 30 minutes per new client."
+      ],
+      "limitations": [
+        "Third-party platform 2FA approvals still require human client intervention."
+      ],
+      "scoring_inputs": {
+        "business_value": 4.2,
+        "data_readiness": 4.8,
+        "delivery_confidence": 4.8,
+        "implementation_effort": 2.0,
+        "operational_risk": 1.2,
+        "hard_stop_triggered": false,
+        "hard_stop_reason": null
+      },
+      "financial_inputs": {
+        "role_title": "Operations Coordinator",
+        "hourly_rate_usd": 50.0,
+        "annual_volume": 36.0,
+        "handling_time_hours": 8.0,
+        "automation_coverage_pct": 0.8,
+        "human_review_overhead_pct": 0.1,
+        "implementation_cost_usd": 4500.0,
+        "annual_recurring_cost_usd": 800.0,
+        "direct_cash_savings_usd": 0.0,
+        "notes": "Reduces client onboarding cycle time from 14 days to 3 days."
+      }
+    },
+    {
+      "id": "OPP-03",
+      "title": "Smart Inbound Lead Enrichment & Routing Assistant",
+      "description": "Instantly enrich inbound lead form submissions with company firmographics, classify intent signals using an LLM, and post an enriched summary card into Slack with 1-click Director assignment.",
+      "workflow_id": "client_enquiry_triage",
+      "problem_statement": "Junior SDRs spend 20 minutes researching every lead across LinkedIn and Google, creating a 2-4 hour latency before the lead receives outreach.",
+      "proposed_solution": "Automated webhook captures form submit, enriches domain via Clearbit/Apollo API, uses an LLM to evaluate ICP match score, and posts an interactive Slack card allowing the Director to claim the lead with 1 click.",
+      "automation_type": "HYBRID",
+      "why_ai_or_why_not": "APIs fetch firmographics; LLM classifies qualitative free-text 'tell us about your goals' responses into structured ICP score and pain categories.",
+      "human_in_the_loop": "MANDATORY_REVIEW",
+      "responsible_owner": "Marcus Vance (CEO)",
+      "data_readiness_notes": "Moderate readiness: HubSpot form fields are structured; free-text notes require classification.",
+      "dependencies": [
+        "HubSpot Form Webhook",
+        "Enrichment API",
+        "Slack Interactive Webhook"
+      ],
+      "required_integrations": [
+        "HubSpot CRM",
+        "Slack",
+        "Clearbit / Apollo API"
+      ],
+      "evidence_level": "MEASURED",
+      "assumptions": [
+        "Faster response time under 15 minutes increases discovery call conversion rate by 20%."
+      ],
+      "limitations": [
+        "Leads with non-corporate email domains (e.g. gmail.com) require fallback to manual research."
+      ],
+      "scoring_inputs": {
+        "business_value": 4.0,
+        "data_readiness": 4.0,
+        "delivery_confidence": 4.2,
+        "implementation_effort": 2.2,
+        "operational_risk": 1.5,
+        "hard_stop_triggered": false,
+        "hard_stop_reason": null
+      },
+      "financial_inputs": {
+        "role_title": "Junior SDR / Account Exec",
+        "hourly_rate_usd": 45.0,
+        "annual_volume": 350.0,
+        "handling_time_hours": 0.58,
+        "automation_coverage_pct": 0.7,
+        "human_review_overhead_pct": 0.15,
+        "implementation_cost_usd": 3800.0,
+        "annual_recurring_cost_usd": 900.0,
+        "direct_cash_savings_usd": 0.0,
+        "notes": "Reduces response latency from 3 hours to 5 minutes."
+      }
+    },
+    {
+      "id": "OPP-04",
+      "title": "Proposal Knowledge Retrieval & Modular Slide Drafter",
+      "description": "Implement semantic retrieval across 100+ past client proposals, case studies, and performance benchmarks to automatically assemble modular slide drafts and tailored strategy proposals.",
+      "workflow_id": "proposal_preparation",
+      "problem_statement": "Senior consultants spend 20 hours per pitch scouring Google Drive for past case studies, reformatting slides, and retyping strategy frameworks from scratch.",
+      "proposed_solution": "Index historical case studies and pitch decks into a secure vector knowledge store. Allow consultants to input prospect profile and receive a modular 15-slide Google Slides draft with matching industry proof points and ROI models.",
+      "automation_type": "AI_LLM",
+      "why_ai_or_why_not": "LLM with semantic search (RAG) is essential to match unstructured prospect requirements to relevant past case studies across hundreds of historical presentations.",
+      "human_in_the_loop": "MANDATORY_REVIEW",
+      "responsible_owner": "Elena Rostova (Head of Client Services)",
+      "data_readiness_notes": "Moderate readiness: Historical decks are in Google Drive but lack uniform tagging.",
+      "dependencies": [
+        "Google Drive Indexer",
+        "Vector Database / Embedding Pipeline",
+        "Google Slides API"
+      ],
+      "required_integrations": [
+        "Google Drive",
+        "Google Slides",
+        "HubSpot CRM"
+      ],
+      "evidence_level": "OBSERVED_INTERVIEW",
+      "assumptions": [
+        "Cuts proposal preparation time by 55% while maintaining bespoke quality.",
+        "Past proposals can be cleaned of confidential client names before indexing."
+      ],
+      "limitations": [
+        "Requires strict review of pricing and proprietary strategies before dispatch."
+      ],
+      "scoring_inputs": {
+        "business_value": 4.6,
+        "data_readiness": 3.2,
+        "delivery_confidence": 3.6,
+        "implementation_effort": 3.8,
+        "operational_risk": 2.2,
+        "hard_stop_triggered": false,
+        "hard_stop_reason": null
+      },
+      "financial_inputs": {
+        "role_title": "Senior Consultant / Strategist",
+        "hourly_rate_usd": 85.0,
+        "annual_volume": 60.0,
+        "handling_time_hours": 20.0,
+        "automation_coverage_pct": 0.55,
+        "human_review_overhead_pct": 0.2,
+        "implementation_cost_usd": 12000.0,
+        "annual_recurring_cost_usd": 2400.0,
+        "direct_cash_savings_usd": 0.0,
+        "notes": "Saves ~528 senior consultant hours annually on pitches."
+      }
+    },
+    {
+      "id": "OPP-05",
+      "title": "Contractor Timesheet & Invoice Automated 3-Way Reconciliation",
+      "description": "Extract invoice line items from contractor PDF invoices using OCR, match against Asana milestone logs, and stage pre-coded bills in QuickBooks for 1-click Finance approval.",
+      "workflow_id": "invoice_processing",
+      "problem_statement": "Month-end invoice matching takes 35+ hours of finance time, manually verifying 45 contractor bills against Asana task logs and rate agreements.",
+      "proposed_solution": "Document parsing service extracts contractor name, hours, rate, and task references; matches against Asana completed task logs; flags variances over 5%; and drafts QuickBooks bills.",
+      "automation_type": "HYBRID",
+      "why_ai_or_why_not": "OCR / Document AI extracts unstructured table fields from varied PDF layouts; rule-based script executes deterministic 3-way matching against Asana and QuickBooks.",
+      "human_in_the_loop": "MANDATORY_REVIEW",
+      "responsible_owner": "Sarah Jenkins (Ops & Finance Lead)",
+      "data_readiness_notes": "Moderate readiness: Invoices come in varying PDF formats; Asana task tagging needs standardization.",
+      "dependencies": [
+        "PDF OCR Extractor",
+        "QuickBooks API",
+        "Asana API"
+      ],
+      "required_integrations": [
+        "QuickBooks Online",
+        "Asana",
+        "Gmail"
+      ],
+      "evidence_level": "MEASURED",
+      "assumptions": [
+        "80% of contractor invoices adhere to agreed task reference formatting."
+      ],
+      "limitations": [
+        "Handwritten or non-standard scanned receipts require manual handling."
+      ],
+      "scoring_inputs": {
+        "business_value": 3.8,
+        "data_readiness": 3.8,
+        "delivery_confidence": 4.0,
+        "implementation_effort": 2.6,
+        "operational_risk": 1.8,
+        "hard_stop_triggered": false,
+        "hard_stop_reason": null
+      },
+      "financial_inputs": {
+        "role_title": "Operations & Finance Lead",
+        "hourly_rate_usd": 60.0,
+        "annual_volume": 540.0,
+        "handling_time_hours": 0.67,
+        "automation_coverage_pct": 0.7,
+        "human_review_overhead_pct": 0.15,
+        "implementation_cost_usd": 5500.0,
+        "annual_recurring_cost_usd": 1200.0,
+        "direct_cash_savings_usd": 3600.0,
+        "notes": "Frees up 215 hours of finance time and saves $3.6k in bookkeeping fees."
+      }
+    },
+    {
+      "id": "OPP-06",
+      "title": "Client Meeting Intelligence & Action Item Synchronizer",
+      "description": "Automatically summarize client Zoom/Google Meet call recordings, extract action items and deadlines, and draft pre-populated Asana tasks assigned to consultants with PM signoff.",
+      "workflow_id": "client_onboarding",
+      "problem_statement": "Consultants spend 30-45 minutes post-meeting writing recap emails and creating Asana tickets; key client action items frequently get dropped.",
+      "proposed_solution": "AI meeting transcription pipeline extracts structured action items with assignees and context, posting a draft summary to Slack with 1-click 'Sync to Asana' approval.",
+      "automation_type": "AI_LLM",
+      "why_ai_or_why_not": "LLM NLP is necessary to distill conversational audio transcripts into concise, actionable task definitions.",
+      "human_in_the_loop": "MANDATORY_REVIEW",
+      "responsible_owner": "Elena Rostova (Head of Client Services)",
+      "data_readiness_notes": "High readiness: Audio recording APIs from Google Meet / Zoom are standardized.",
+      "dependencies": [
+        "Meeting Bot API",
+        "Enterprise Transcription LLM",
+        "Asana API"
+      ],
+      "required_integrations": [
+        "Google Meet / Zoom",
+        "Asana",
+        "Slack"
+      ],
+      "evidence_level": "OBSERVED_INTERVIEW",
+      "assumptions": [
+        "Consultants review and approve generated tasks in under 2 minutes."
+      ],
+      "limitations": [
+        "Requires client consent disclosure for recording in accordance with two-party consent laws."
+      ],
+      "scoring_inputs": {
+        "business_value": 3.6,
+        "data_readiness": 4.2,
+        "delivery_confidence": 4.2,
+        "implementation_effort": 2.0,
+        "operational_risk": 2.0,
+        "hard_stop_triggered": false,
+        "hard_stop_reason": null
+      },
+      "financial_inputs": {
+        "role_title": "Consultant / Project Manager",
+        "hourly_rate_usd": 70.0,
+        "annual_volume": 520.0,
+        "handling_time_hours": 0.5,
+        "automation_coverage_pct": 0.65,
+        "human_review_overhead_pct": 0.15,
+        "implementation_cost_usd": 3500.0,
+        "annual_recurring_cost_usd": 1500.0,
+        "direct_cash_savings_usd": 0.0,
+        "notes": "Saves ~142 hours of post-meeting administrative task creation."
+      }
+    },
+    {
+      "id": "OPP-07",
+      "title": "Internal SOP & Campaign Playbook Co-pilot for Junior Staff",
+      "description": "A private RAG-powered chatbot in Slack that indexes agency SOPs, ad policy guidelines, and tracking setup playbooks to provide immediate step-by-step guidance to junior media analysts.",
+      "workflow_id": "weekly_reporting",
+      "problem_statement": "Junior analysts spend hours searching scattered Drive folders or interrupting senior consultants with repetitive questions on pixel setup and UTM conventions.",
+      "proposed_solution": "Slack bot answering operational questions with exact citations to verified agency Notion/Google Drive SOPs.",
+      "automation_type": "AI_LLM",
+      "why_ai_or_why_not": "RAG search across qualitative SOP documentation enables natural question-answering with direct source citations.",
+      "human_in_the_loop": "EXCEPTION_ONLY",
+      "responsible_owner": "David Chen (Senior Consultant)",
+      "data_readiness_notes": "Moderate readiness: SOPs exist but need centralization and review for currency.",
+      "dependencies": [
+        "Notion / Drive API",
+        "Vector Embeddings",
+        "Slack Bot Framework"
+      ],
+      "required_integrations": [
+        "Slack",
+        "Google Drive / Notion"
+      ],
+      "evidence_level": "OBSERVED_INTERVIEW",
+      "assumptions": [
+        "Reduces senior consultant interruptions by 4 hours/week across the team."
+      ],
+      "limitations": [
+        "Answers are only as good as the underlying documented SOPs."
+      ],
+      "scoring_inputs": {
+        "business_value": 3.4,
+        "data_readiness": 3.5,
+        "delivery_confidence": 4.0,
+        "implementation_effort": 2.4,
+        "operational_risk": 1.4,
+        "hard_stop_triggered": false,
+        "hard_stop_reason": null
+      },
+      "financial_inputs": {
+        "role_title": "Junior Analyst / Specialist",
+        "hourly_rate_usd": 45.0,
+        "annual_volume": 250.0,
+        "handling_time_hours": 1.0,
+        "automation_coverage_pct": 0.6,
+        "human_review_overhead_pct": 0.1,
+        "implementation_cost_usd": 4000.0,
+        "annual_recurring_cost_usd": 1000.0,
+        "direct_cash_savings_usd": 0.0,
+        "notes": "Reduces junior research time and senior consultant interruptions."
+      }
+    },
+    {
+      "id": "OPP-08",
+      "title": "Autonomous Direct-to-Client Live Campaign Auto-Publisher",
+      "description": "Unsupervised autonomous AI agent generating ad copy, uploading creatives, and adjusting live client advertising budgets directly in Meta & Google Ads without human consultant signoff.",
+      "workflow_id": "weekly_reporting",
+      "problem_statement": "Ad campaign adjustments and copywriting take several hours per week of manual campaign manager time.",
+      "proposed_solution": "Deploy an autonomous LLM agent with direct write API access to client ad accounts to autonomously rewrite copy, reallocate budgets, and publish new ad variants daily.",
+      "automation_type": "AI_LLM",
+      "why_ai_or_why_not": "Autonomous generative AI attempting real-time decision making on live ad budgets.",
+      "human_in_the_loop": "AUTONOMOUS",
+      "responsible_owner": "Paid Media Lead",
+      "data_readiness_notes": "High API access, but critical operational hazard.",
+      "dependencies": [
+        "Meta Write API",
+        "Google Ads Write API"
+      ],
+      "required_integrations": [
+        "Meta Ads",
+        "Google Ads"
+      ],
+      "evidence_level": "HYPOTHESIS_NEEDS_VALIDATION",
+      "assumptions": [
+        "Agent might hallucinate non-compliant claims or misallocate client ad budgets without oversight."
+      ],
+      "limitations": [
+        "Violates brand safety guidelines, agency master service agreements, and fiduciary liability standards."
+      ],
+      "scoring_inputs": {
+        "business_value": 3.5,
+        "data_readiness": 4.0,
+        "delivery_confidence": 2.0,
+        "implementation_effort": 4.5,
+        "operational_risk": 5.0,
+        "hard_stop_triggered": true,
+        "hard_stop_reason": "CRITICAL RISK: Unsupervised autonomous modifications to live client ad budgets and external brand copy violate agency contracts, risk severe financial liability, and fail human-in-the-loop governance standards. Blocked until strict mandatory human approval gate is architected."
+      },
+      "financial_inputs": {
+        "role_title": "Senior Paid Media Consultant",
+        "hourly_rate_usd": 75.0,
+        "annual_volume": 200.0,
+        "handling_time_hours": 2.0,
+        "automation_coverage_pct": 0.5,
+        "human_review_overhead_pct": 0.0,
+        "implementation_cost_usd": 15000.0,
+        "annual_recurring_cost_usd": 3000.0,
+        "direct_cash_savings_usd": 0.0,
+        "notes": "BLOCKED: High liability financial and brand safety risk."
+      }
+    },
+    {
+      "id": "OPP-09",
+      "title": "Automated Monthly Client Health & Retention Risk Predictor",
+      "description": "Rule-based heuristic scoring combining Asana milestone delivery velocity, weekly KPI goal attainment, and CRM communication frequency to flag churn-risk accounts for Director intervention.",
+      "workflow_id": "client_onboarding",
+      "problem_statement": "Client churn signals are often noticed too late (at 90-day review), leading to avoidable retainer cancellations.",
+      "proposed_solution": "Weekly automated health scorecard aggregating overdue Asana tasks, Looker Studio performance trends, and days since last client contact into a green/amber/red account health dashboard.",
+      "automation_type": "RULE_BASED",
+      "why_ai_or_why_not": "Deterministic business rules and thresholds are vastly superior and more explainable than black-box AI for churn risk flags.",
+      "human_in_the_loop": "EXCEPTION_ONLY",
+      "responsible_owner": "Elena Rostova (Head of Client Services)",
+      "data_readiness_notes": "Moderate readiness: Requires connecting Asana project completion data with HubSpot contact logs.",
+      "dependencies": [
+        "Asana API",
+        "HubSpot API",
+        "Looker Studio"
+      ],
+      "required_integrations": [
+        "Asana",
+        "HubSpot CRM",
+        "Slack"
+      ],
+      "evidence_level": "OBSERVED_INTERVIEW",
+      "assumptions": [
+        "Early churn detection saves at least 2 retainer accounts per year ($24k-$48k annual revenue)."
+      ],
+      "limitations": [
+        "Cannot measure informal offline client relationships without consultant check-ins."
+      ],
+      "scoring_inputs": {
+        "business_value": 4.4,
+        "data_readiness": 3.6,
+        "delivery_confidence": 4.4,
+        "implementation_effort": 2.4,
+        "operational_risk": 1.4,
+        "hard_stop_triggered": false,
+        "hard_stop_reason": null
+      },
+      "financial_inputs": {
+        "role_title": "Account Director",
+        "hourly_rate_usd": 90.0,
+        "annual_volume": 52.0,
+        "handling_time_hours": 1.5,
+        "automation_coverage_pct": 0.65,
+        "human_review_overhead_pct": 0.1,
+        "implementation_cost_usd": 4800.0,
+        "annual_recurring_cost_usd": 1000.0,
+        "direct_cash_savings_usd": 12000.0,
+        "notes": "Protects high-margin retainer revenue through proactive churn alerts."
+      }
+    }
+  ],
+  "security_checklist": [
+    {
+      "id": "SEC-01",
+      "category": "Personal & Confidential Data",
+      "title": "PII and Client Financial Data Isolation",
+      "requirement": "Identify all client PII, confidential financials, and sensitive credentials across workflows; enforce automated tokenization or redaction before model processing.",
+      "status": "NEEDS_ATTENTION",
+      "notes": "Ad campaign metrics and generic marketing copy are safe, but proposals contain client financial targets.",
+      "evidence_level": "OBSERVED_INTERVIEW",
+      "remediation_action": "Implement automated regex scrubber for client revenue numbers and NDA-covered brand names prior to LLM drafting."
+    },
+    {
+      "id": "SEC-02",
+      "category": "Access Controls & Least Privilege",
+      "title": "Role-Based Access Control (RBAC) & API Token Scopes",
+      "requirement": "Automation tools and AI integrations must use granular, least-privilege API keys and scoped service accounts; enforce MFA for administrative consoles.",
+      "status": "PASS",
+      "notes": "Google Workspace and Asana already have strict MFA and role-based department permission tiers.",
+      "evidence_level": "MEASURED",
+      "remediation_action": "Maintain quarterly audit of API service account scopes."
+    },
+    {
+      "id": "SEC-03",
+      "category": "Data Retention & Deletion",
+      "title": "Retention Schedules and Client Offboarding Deletion",
+      "requirement": "Establish clear data retention windows for intermediate logs, generated drafts, and vector embeddings; provide documented mechanisms to purge client data upon offboarding.",
+      "status": "NEEDS_ATTENTION",
+      "notes": "Historical pitch decks stored indefinitely in Google Drive without standardized purge policy.",
+      "evidence_level": "OBSERVED_INTERVIEW",
+      "remediation_action": "Define a 24-month retention schedule and an automated offboarding script to archive/delete client embeddings."
+    },
+    {
+      "id": "SEC-04",
+      "category": "Vendor Terms & Model Training",
+      "title": "Zero-Data-Retention (ZDR) and No-Training Verification",
+      "requirement": "Contractually ensure that LLM vendors and cloud platforms do not use client data or prompt history to train foundation models.",
+      "status": "PASS",
+      "notes": "Enterprise commercial API endpoints with Anthropic / OpenAI provide explicit Zero-Data-Retention clauses.",
+      "evidence_level": "MEASURED",
+      "remediation_action": "Prohibit use of consumer ChatGPT/Claude web interfaces for work with client data."
+    },
+    {
+      "id": "SEC-05",
+      "category": "Data Residency & Jurisdiction",
+      "title": "Geographic Storage and Cross-Border Transfer Compliance",
+      "requirement": "Verify regional data residency (e.g. US/EU data center storage) for all third-party services holding customer or business records.",
+      "status": "PASS",
+      "notes": "Primary data infrastructure resides in US-East Google Cloud and AWS regions matching client contracts.",
+      "evidence_level": "MEASURED",
+      "remediation_action": "Keep standard Data Processing Agreements (DPAs) on file."
+    },
+    {
+      "id": "SEC-06",
+      "category": "Human Review & Escalation Guardrails",
+      "title": "Human-in-the-Loop Approval & Fallback Pathways",
+      "requirement": "Mandate explicit human approval for all external client communications, financial transactions, and high-impact contractual changes; provide deterministic manual fallbacks when systems fail.",
+      "status": "PASS",
+      "notes": "Mandatory review enforced for all reporting commentary, proposals, and invoices before external transmission.",
+      "evidence_level": "MEASURED",
+      "remediation_action": "Implement 1-click Slack interactive approval buttons with audit logging."
+    },
+    {
+      "id": "SEC-07",
+      "category": "Auditability, Reliability & Telemetry",
+      "title": "Immutable Audit Logging and Execution Monitoring",
+      "requirement": "Log all prompt invocations, automation execution payloads, user approvals, and error states to centralized tamper-resistant log stores.",
+      "status": "NEEDS_ATTENTION",
+      "notes": "Current Zapier logs expire after 30 days without centralized cold storage.",
+      "evidence_level": "MEASURED",
+      "remediation_action": "Route all automation error webhooks and approval events to a centralized Datadog or Google Cloud Logging sink."
+    },
+    {
+      "id": "SEC-08",
+      "category": "Integration Security & Secrets Management",
+      "title": "Centralized Secrets Vault and Key Rotation",
+      "requirement": "Store all API tokens and OAuth secrets in a dedicated vault (e.g., AWS Secrets Manager, 1Password Secrets); prohibit plaintext secrets in code or workflow visual builders.",
+      "status": "PASS",
+      "notes": "1Password Business Secrets Vault deployed across all agency developers and operations staff.",
+      "evidence_level": "MEASURED",
+      "remediation_action": "Enforce 90-day rotation on ad network API refresh tokens."
+    }
+  ],
+  "risk_register": [
+    {
+      "risk_id": "RSK-01",
+      "category": "Client Confidentiality & PII Leakage",
+      "description": "Accidental inclusion of confidential client financials or proprietary strategic roadmaps in third-party LLM prompt context.",
+      "likelihood": 3,
+      "severity": 4,
+      "mitigation_strategy": "Enforce Zero-Data-Retention enterprise API endpoints; implement automated client name and revenue regex tokenization before prompt construction.",
+      "residual_likelihood": 1,
+      "residual_severity": 3,
+      "owner": "Sarah Jenkins (Ops & Security)",
+      "inherent_risk_score": 12,
+      "inherent_risk_level": "High",
+      "residual_risk_score": 3,
+      "residual_risk_level": "Low"
+    },
+    {
+      "risk_id": "RSK-02",
+      "category": "AI Hallucination in Client Deliverables",
+      "description": "LLM generates plausible but inaccurate commentary regarding ad performance attribution or false explanations of campaign metrics.",
+      "likelihood": 4,
+      "severity": 4,
+      "mitigation_strategy": "Mandatory human consultant review before sending reports; ground LLM exclusively on deterministic API metric deltas with strict temperature=0.1 settings.",
+      "residual_likelihood": 2,
+      "residual_severity": 2,
+      "owner": "David Chen (Senior Consultant)",
+      "inherent_risk_score": 16,
+      "inherent_risk_level": "Critical",
+      "residual_risk_score": 4,
+      "residual_risk_level": "Low"
+    },
+    {
+      "risk_id": "RSK-03",
+      "category": "Ad Network API Rate Limits & Schema Drift",
+      "description": "Meta or Google Ads updates reporting API schemas or throttles automated pipeline calls during month-end peaks.",
+      "likelihood": 3,
+      "severity": 3,
+      "mitigation_strategy": "Implement exponential backoff retry queues, local schema validation caching, and automated alert fallback to manual export.",
+      "residual_likelihood": 1,
+      "residual_severity": 2,
+      "owner": "Technical Lead",
+      "inherent_risk_score": 9,
+      "inherent_risk_level": "Medium",
+      "residual_risk_score": 2,
+      "residual_risk_level": "Low"
+    },
+    {
+      "risk_id": "RSK-04",
+      "category": "Staff Resistance & Lack of Adoption",
+      "description": "Consultants bypass automated drafting tools due to distrust or lack of clear training, continuing manual copy-pasting.",
+      "likelihood": 3,
+      "severity": 3,
+      "mitigation_strategy": "Involve senior consultants directly in prompt co-design; implement 1-click Slack review UI to minimize cognitive friction; measure weekly time saved.",
+      "residual_likelihood": 1,
+      "residual_severity": 2,
+      "owner": "Elena Rostova (Head of Client Services)",
+      "inherent_risk_score": 9,
+      "inherent_risk_level": "Medium",
+      "residual_risk_score": 2,
+      "residual_risk_level": "Low"
+    },
+    {
+      "risk_id": "RSK-05",
+      "category": "Invoice OCR Parsing & Matching Errors",
+      "description": "Contractor invoice with non-standard formatting results in misread line item amounts or wrong task code mapping in QuickBooks.",
+      "likelihood": 3,
+      "severity": 3,
+      "mitigation_strategy": "Mandatory finance lead approval step before QuickBooks bills are scheduled; flag all line items with confidence score below 95%.",
+      "residual_likelihood": 1,
+      "residual_severity": 2,
+      "owner": "Sarah Jenkins (Ops & Finance Lead)",
+      "inherent_risk_score": 9,
+      "inherent_risk_level": "Medium",
+      "residual_risk_score": 2,
+      "residual_risk_level": "Low"
+    },
+    {
+      "risk_id": "RSK-06",
+      "category": "Unsupervised Autonomous Action Exposure",
+      "description": "Autonomous agent making unauthorized changes to live client ad campaigns or budgets.",
+      "likelihood": 2,
+      "severity": 5,
+      "mitigation_strategy": "Hard-stop policy: Absolute prohibition of unsupervised write API access to client ad spend. All automations require human signoff.",
+      "residual_likelihood": 1,
+      "residual_severity": 1,
+      "owner": "Marcus Vance (CEO)",
+      "inherent_risk_score": 10,
+      "inherent_risk_level": "High",
+      "residual_risk_score": 1,
+      "residual_risk_level": "Low"
+    }
+  ],
+  "roadmap": [
+    {
+      "phase": "Phase 1: Days 1\u201330 (Foundations, Security & First Prototype)",
+      "opportunity_id": "SEC-FOUNDATIONS",
+      "title": "Security Lockdown, Secrets Vault & Enterprise API Provisioning",
+      "objective": "Establish enterprise API accounts with Zero-Data-Retention agreements, configure centralized secrets management, and set up staging test harnesses.",
+      "business_justification": "Pre-requisite for all AI deployments to eliminate data leakage risks and ensure compliance with client NDAs.",
+      "deliverables": [
+        "Signed Enterprise LLM Zero-Data-Retention agreements",
+        "1Password API Secrets Vault configured with scoped tokens",
+        "Automated PII scrubbing utility library"
+      ],
+      "responsible_role": "Lead Consultant / Security Lead",
+      "dependencies": [
+        "Executive budget signoff"
+      ],
+      "estimated_effort_weeks": 1.5,
+      "estimated_cost_usd": 3000.0,
+      "risks_and_mitigations": [
+        {
+          "risk": "Vendor contract delays",
+          "mitigation": "Use pre-approved enterprise standard terms"
+        }
+      ],
+      "success_metrics": [
+        "100% of API keys stored in vault",
+        "Zero plaintext credentials in repositories"
+      ],
+      "baseline_requirements": [
+        "Admin access to HubSpot, Google Workspace, and ad platforms"
+      ],
+      "acceptance_criteria": [
+        "Verified Zero-Data-Retention compliance",
+        "Automated PII regex test suite passing 100%"
+      ],
+      "go_no_go_gate": "Security signoff required before connecting any client data feeds.",
+      "is_first_prototype": false,
+      "prototype_rationale": null
+    },
+    {
+      "phase": "Phase 1: Days 1\u201330 (Foundations, Security & First Prototype)",
+      "opportunity_id": "OPP-01",
+      "title": "Automated Weekly Performance Report Generator (First Prototype)",
+      "objective": "Deploy end-to-end automated Looker Studio metric ingestion and LLM-assisted executive commentary drafting for 5 pilot client accounts.",
+      "business_justification": "Immediate, measurable relief for senior consultants (14 hrs/wk time sink) with zero direct external client risk due to mandatory internal review.",
+      "deliverables": [
+        "API data extraction pipeline for Meta & Google Ads",
+        "Prompt-engineered narrative commentary generator",
+        "1-click consultant review and PDF dispatch interface"
+      ],
+      "responsible_role": "Senior Growth Consultant & Developer",
+      "dependencies": [
+        "SEC-FOUNDATIONS"
+      ],
+      "estimated_effort_weeks": 3.0,
+      "estimated_cost_usd": 7500.0,
+      "risks_and_mitigations": [
+        {
+          "risk": "Commentary tone variance",
+          "mitigation": "Few-shot prompt calibration with 20 best-in-class past reports"
+        }
+      ],
+      "success_metrics": [
+        "Consultant reporting time reduced from 75 mins to <= 15 mins per report",
+        "100% of pilot reports approved by Account Director without major rewrites"
+      ],
+      "baseline_requirements": [
+        "Clean Looker Studio template",
+        "Meta/Google Ads API access"
+      ],
+      "acceptance_criteria": [
+        "Accurate blended ROAS/CAC calculations across 5 pilot accounts",
+        "Consultant satisfaction rating >= 4.5/5 on draft quality"
+      ],
+      "go_no_go_gate": "Pilot review sign-off by Head of Client Services at Day 30 before rolling out to remaining 23 clients.",
+      "is_first_prototype": true,
+      "prototype_rationale": "Selected as the recommended First Prototype because it addresses the single largest operational time sink (1,456 runs/yr, 75 mins each), operates on structured, highly available API data, and incorporates an internal-only human review step that completely eliminates external client exposure."
+    },
+    {
+      "phase": "Phase 2: Days 31\u201360 (Core Workflow Automation & System Integration)",
+      "opportunity_id": "OPP-02",
+      "title": "Client Onboarding Orchestrator & Asset Hub",
+      "objective": "Automate workspace creation, Asana project setup, and client permission reminder cadence upon deal Closed-Won status in HubSpot.",
+      "business_justification": "Compresses onboarding cycle time from 14 days to 3 days, dramatically improving new client first-impression and freeing 8 hours of Ops time per client.",
+      "deliverables": [
+        "HubSpot deal-won webhook listener",
+        "Automated Asana board & Google Drive template generator",
+        "Interactive client asset upload portal with automated follow-ups"
+      ],
+      "responsible_role": "Operations Lead & Systems Integrator",
+      "dependencies": [
+        "SEC-FOUNDATIONS"
+      ],
+      "estimated_effort_weeks": 2.5,
+      "estimated_cost_usd": 4500.0,
+      "risks_and_mitigations": [
+        {
+          "risk": "Client delays in 2FA approvals",
+          "mitigation": "Direct WhatsApp / SMS ping integration"
+        }
+      ],
+      "success_metrics": [
+        "Onboarding administrative setup time reduced by 80%",
+        "New client time-to-first-campaign reduced from 14 days to <= 4 days"
+      ],
+      "baseline_requirements": [
+        "HubSpot Closed-Won deal webhook triggers"
+      ],
+      "acceptance_criteria": [
+        "Asana boards generated with 100% correct task dependencies and assignees",
+        "Google Drive folder permissions mapped strictly to client team"
+      ],
+      "go_no_go_gate": "Successful automated onboarding of 2 live client accounts without manual intervention.",
+      "is_first_prototype": false,
+      "prototype_rationale": null
+    },
+    {
+      "phase": "Phase 2: Days 31\u201360 (Core Workflow Automation & System Integration)",
+      "opportunity_id": "OPP-03",
+      "title": "Smart Inbound Lead Triage & Slack Routing Card",
+      "objective": "Enrich inbound leads with company data and qualify intent within 60 seconds of submission.",
+      "business_justification": "Cuts response time from 3 hours to 5 minutes, significantly boosting lead-to-discovery conversion.",
+      "deliverables": [
+        "Clearbit/Apollo API enrichment integration",
+        "LLM intent classification model",
+        "Slack interactive notification card with 1-click claiming"
+      ],
+      "responsible_role": "Sales Operations & Marketing Specialist",
+      "dependencies": [
+        "SEC-FOUNDATIONS"
+      ],
+      "estimated_effort_weeks": 2.0,
+      "estimated_cost_usd": 3800.0,
+      "risks_and_mitigations": [
+        {
+          "risk": "Misclassification of non-standard leads",
+          "mitigation": "Fallback to general triage channel"
+        }
+      ],
+      "success_metrics": [
+        "Lead triage response time < 15 minutes",
+        "Zero high-fit ICP leads overlooked"
+      ],
+      "baseline_requirements": [
+        "HubSpot form access and Slack bot permissions"
+      ],
+      "acceptance_criteria": [
+        "Enriched firmographics match reality on >90% of submissions",
+        "Director 1-click claim updates HubSpot lead owner automatically"
+      ],
+      "go_no_go_gate": "Tested on 50 synthetic and live lead submissions with 100% routing accuracy.",
+      "is_first_prototype": false,
+      "prototype_rationale": null
+    },
+    {
+      "phase": "Phase 3: Days 61\u201390 (Scaling, Advanced AI Drafting & Continuous Optimization)",
+      "opportunity_id": "OPP-04",
+      "title": "Proposal Knowledge Retrieval & Modular Slide Drafter",
+      "objective": "Deploy semantic search across past pitch decks to generate 15-slide customized Google Slides proposal drafts for senior review.",
+      "business_justification": "Unlocks ~528 hours of senior strategist time and accelerates proposal turnaround from 5 days to 24 hours.",
+      "deliverables": [
+        "Vector index of past case studies, benchmarks, and frameworks",
+        "Google Slides template generator with customized case proof points",
+        "Fee & scope calculation validator"
+      ],
+      "responsible_role": "Head of Client Services & AI Engineer",
+      "dependencies": [
+        "SEC-FOUNDATIONS",
+        "OPP-01"
+      ],
+      "estimated_effort_weeks": 4.0,
+      "estimated_cost_usd": 12000.0,
+      "risks_and_mitigations": [
+        {
+          "risk": "Outdated case studies referenced",
+          "mitigation": "Metadata date weighting favoring past 12 months"
+        }
+      ],
+      "success_metrics": [
+        "Proposal drafting time reduced from 20 hours to 8 hours",
+        "Proposal error rate reduced to < 2%"
+      ],
+      "baseline_requirements": [
+        "Sanitized repository of past winning proposals"
+      ],
+      "acceptance_criteria": [
+        "Generated slide deck adheres strictly to brand typography and master layout",
+        "Strategist signoff required prior to client presentation"
+      ],
+      "go_no_go_gate": "Executive review of 3 pilot proposal drafts by CEO Marcus Vance.",
+      "is_first_prototype": false,
+      "prototype_rationale": null
+    },
+    {
+      "phase": "Phase 3: Days 61\u201390 (Scaling, Advanced AI Drafting & Continuous Optimization)",
+      "opportunity_id": "OPP-05",
+      "title": "Contractor Invoice & Timesheet Automated Reconciliation",
+      "objective": "Automate OCR parsing of contractor invoices, cross-reference with Asana task milestones, and stage pre-coded bills in QuickBooks.",
+      "business_justification": "Eliminates 215 hours of repetitive finance matching and prevents billable milestone leakage.",
+      "deliverables": [
+        "PDF Invoice OCR ingestion pipeline",
+        "Asana milestone 3-way matcher",
+        "QuickBooks Online bill staging integration"
+      ],
+      "responsible_role": "Ops & Finance Lead & Developer",
+      "dependencies": [
+        "SEC-FOUNDATIONS"
+      ],
+      "estimated_effort_weeks": 2.5,
+      "estimated_cost_usd": 5500.0,
+      "risks_and_mitigations": [
+        {
+          "risk": "OCR misread of line item amounts",
+          "mitigation": "Strict variance threshold (>5% triggers manual review)"
+        }
+      ],
+      "success_metrics": [
+        "Finance month-end reconciliation time reduced by 70%",
+        "100% of discrepancy flags caught prior to payment execution"
+      ],
+      "baseline_requirements": [
+        "QuickBooks Online API and Asana completed task logs"
+      ],
+      "acceptance_criteria": [
+        "Zero unapproved payments executed autonomously",
+        "Finance lead signoff on staged bills"
+      ],
+      "go_no_go_gate": "Successful parallel month-end run against manual spreadsheets with 100% match.",
+      "is_first_prototype": false,
+      "prototype_rationale": null
+    }
+  ],
+  "scoring_weights": {
+    "business_value": 0.3,
+    "data_readiness": 0.2,
+    "delivery_confidence": 0.2,
+    "implementation_effort": 0.15,
+    "operational_risk": 0.15
+  }
+}

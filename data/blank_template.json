@@ -1,0 +1,47 @@
+{
+  "project_id": "NEW-AUDIT-001",
+  "project_name": "New Business AI Opportunity Audit",
+  "audit_date": "2026-10-10",
+  "consultant_name": "Your Name / Practice Name",
+  "client_contact": "Client Executive Name",
+  "business_context": {
+    "company_name": "Acme Corporation",
+    "industry": "Professional Services",
+    "size_employees": 10,
+    "annual_revenue_usd": 1000000.0,
+    "business_overview": "Brief description of the service business model and current operations.",
+    "strategic_objectives": [
+      "Increase operational efficiency",
+      "Reduce manual reporting hours"
+    ],
+    "team_structure": {
+      "Leadership": [
+        "CEO / Founder"
+      ],
+      "Operations": [
+        "Operations Lead"
+      ]
+    },
+    "current_tech_stack": [
+      {
+        "name": "Google Workspace",
+        "category": "Productivity",
+        "purpose": "Docs & Sheets"
+      }
+    ],
+    "confidentiality_requirements": "Zero data retention for client records."
+  },
+  "interviews": [],
+  "workflows": [],
+  "opportunities": [],
+  "security_checklist": [],
+  "risk_register": [],
+  "roadmap": [],
+  "scoring_weights": {
+    "business_value": 0.3,
+    "data_readiness": 0.2,
+    "delivery_confidence": 0.2,
+    "implementation_effort": 0.15,
+    "operational_risk": 0.15
+  }
+}
